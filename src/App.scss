@@ -1,0 +1,92 @@
+section {
+    min-height: 700px;
+    height: 100vh;
+    h1 {
+        margin-top: 10px;
+    }
+}
+
+section.welcome {
+    .container, .row {
+        height: 100%;
+    } 
+    h2 {
+        rt {
+            text-align: center;
+        }
+    }
+    .welcome-img {
+        align-self: center;
+        .base-img{
+            width: 100%;
+            position: relative;
+        }
+        .base-img-eye-right{
+            width: 5%;
+            position: absolute;
+            top:18%;
+            right:50%;
+            background-color: transparent;
+        }
+
+        .base-img-eye-left{
+            width: 5%;
+            position: absolute;
+            top:18%;
+            left:52%;
+            background-color: transparent;
+        }
+    }
+
+    .welcome-text{
+        align-self: center;
+    }
+}
+
+section.about {
+    .container {
+        height: 100%;
+    } 
+    background-color: lavenderblush;
+    h1 {
+        text-align: center;
+    }
+    .character-img {
+        .base-img{
+            width: 100%;
+            position: relative;
+        }
+    }
+}
+
+section.skills {
+    .container {
+        height: 100%;
+    } 
+    background-color: snow;
+    h1 {
+        text-align: center;
+    }
+    .character-img {
+        .base-img{
+            width: 100%;
+            position: relative;
+        }
+    }
+}
+
+section.projects {
+    .container {
+        height: 100%;
+    } 
+    background-color: gray;
+    h1 {
+        text-align: center;
+    }
+    .character-img {
+        .base-img{
+            width: 100%;
+            position: relative;
+        }
+    }
+}
