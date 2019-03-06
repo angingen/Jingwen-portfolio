@@ -5,6 +5,8 @@ import Welcome from './WelcomeComponent';
 import About from './AboutComponent';
 import Skills from './SkillsComponent';
 import Projects from './ProjectsComponent';
+import NavSide from './NavComponent';
+import Loading from './LoadingComponent';
 
 export default class Main extends Component {
     constructor(props) {
@@ -12,13 +14,19 @@ export default class Main extends Component {
 
     }
 
+    componentDidMount() {
+
+    }
+
     render(){
         return (
             <React.Fragment>
+                <Loading />>
                 <Welcome />
                 <About />
                 <Skills />
                 <Projects />
+                <NavSide />
             </React.Fragment>
     )}
 

@@ -4,9 +4,20 @@ import './App.scss';
 import Main from './components/MainComponent';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isLoading: true
+    }
+  }
+
+  componentDidMount() {
+    this.setState({isLoading: false})
+  }
+
   render() {
     return (
-      <div className="App">
+      <div className={this.state.isLoading? 'App':'App loaded'}>
         <Main />
       </div>
     );
