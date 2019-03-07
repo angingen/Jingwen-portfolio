@@ -12,7 +12,7 @@ export default class NavSide extends Component {
 
     render() {
         return(
-            <div className="nav-container d-none d-sm-block">
+            <div className="nav-container">
                 <Nav vertical>
                     <NavItem>
                         <NavLink href="#welcome-section" className={this.currentSection === "home"? "nav-link-active":""}><span className="fa fa-sm fa-home" ></span></NavLink>
