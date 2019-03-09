@@ -1,14 +1,101 @@
+$dark: #212529;
+$lt-grey: #DDDAD8;
+$cream-white: #F9F7F0;
+
+
+@import 'animation';
+
+@mixin animation($name,$duration,$delay,$interation,$fill) {
+    -webkit-animation-name: $name;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-iteration-count: $interation;
+    -webkit-animation-fill-mode: $fill;
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-iteration-count: $interation;
+    animation-fill-mode: $fill;
+}
+
+@mixin absolute-position($left,$right) {
+    position: absolute;
+    left: $left;
+    top: $right;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 section {
     min-height: 600px;
-    height: 100vh;
-    // position: absolute;
-    // left:0;
-    // top:0;
+    flex: 1 0 auto;
     width: 100%;
+    display: flex;
+    align-items: center;
     h1 {
         margin-top: 10px;
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
     }
     padding: 10px;
+
+}
+
+footer {
+    background-color: $dark;
+    height: 90px;
+    padding-top: 10px;
+    div {
+        text-align: center;
+    }
+
+    a {
+        color: white;
+        margin: 0 5px; 
+    }
+}
+
+.button {
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid $dark;
+    margin: 10px 10px 0 0;
+    padding: 10px;
+    color: $dark;
+    position: relative;
+    box-shadow: 2px 2px 0px grey;
+    span {
+        @include absolute-position(0,0);
+        height: 100%;
+        background-color: $dark;
+        z-index: -10;
+    }
+}
+
+.button:hover {
+    text-decoration: none;
+    color: white;
+
+    span{
+        @include animation(button-hover,0.5s,0s,1,forwards);
+    }
 }
 
 .loading-wrapper{
@@ -42,14 +129,7 @@ section {
         width: 40px;
         height: 5px;
         position: relative;
-        -webkit-animation-name: loading;
-        -webkit-animation-duration: 2s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-fill-mode: backwards;
-        animation-name: loading;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
-        animation-fill-mode: backwards;
+        @include animation(loading,2s,0s,infinite,backwards);
     }
 }
 
@@ -57,52 +137,9 @@ section {
     position: absolute;
     left: 0;
     top: 0;
-    -webkit-animation-name: slide-up;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-fill-mode: forwards;
+    @include animation(slide-up,1s,2s,1,forwards);
     -webkit-animation-timing-function: linear;
-    -webkit-animation-delay: 2s;
-    animation-name: slide-up;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
     animation-timing-function: linear;
-    animation-delay: 2s;
-}
-
-@-webkit-keyframes loading{
-    0% {left:-40px; top:0;}
-    50% {left:100%; top:0;}
-    100% {left:-40px; top:0;}
-}
-
-@keyframes loading {
-    0% {left:-40px; top:0;}
-    50% {left:100%; top:0;}
-    100% {left:-40px; top:0;}
-}
-
-@-webkit-keyframes blink {
-    0% {opacity: 0.5;}
-    50% {opacity: 1;}
-    100% {opacity: 0.5;}
-}
-
-@keyframes blink {
-    0% {opacity: 0.5;}
-    50% {opacity: 1;}
-    100% {opacity: 0.5;}
-}
-
-@-webkit-keyframes slide-up {
-    0% {left: 0; top:0; position: absolute;}
-    50% {left: 0; top: -80vh; position: absolute;}
-    100% {left: 0; top: -160vh; visibility: hidden;}
-}
-
-@keyframes slide-up {
-    0% {left: 0; top:0; position: absolute;}
-    50% {left: 0; top: -80vh; position: absolute;}
-    100% {left: 0; top: -160vh; visibility: hidden;}
 }
 
 section.welcome {
@@ -114,6 +151,11 @@ section.welcome {
             text-align: center;
         }
     }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
     .welcome-img {
         align-self: center;
         .base-img{
@@ -138,12 +180,7 @@ section.welcome {
     }
 
     img {
-        -webkit-animation-name: occur;
-        -webkit-animation-duration: 3s;
-        -webkit-animation-fill-mode: backwards;
-        -webkit-animation-delay: 2s;
-        animation: occur 3s backwards;
-        animation-delay: 2s;
+        // @include animation(occur,3s,2s,1,backwards);
     }
 
     .welcome-text{
@@ -152,191 +189,122 @@ section.welcome {
 }
 
 section.about {
+    flex-direction: column;
+    position: relative;
     .container {
         height: 100%;
-    } 
-    background-color: rgb(255, 240, 245);
-    h1 {
-        text-align: center;
-    }
-
-    .about-wraper{
-        align-items: stretch;
+        flex: 1 0 100%;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+    } 
+    background-color: gray;
+    h1 {
+        color: snow;
+        text-transform: uppercase;
+        width: 100%;
+        align-self: flex-start;
+        flex: 0 0 auto;
+        text-align: center;
+        font-weight: bold;
     }
 
-    .avatar-items-wraper, .avatar-attribute-wraper {
-        border: 2px solid rgb(161, 25, 25);
-        background-color: white;
-        padding: 10px;
-        border-radius: 5px;
-    }    
-
-    .inventory-container, .item-info-container, .attribute-container{
-        background-color: white;
-        border: 2px solid lightgray;
-        border-radius: 5px;
-        margin: 5px 0;
-        min-height: 200px;
-    }
-
-    .attribute-container{
-        height: 150px;
-        position: relative;
-
-        .log-header {
-            position: absolute;
-            top:0;
-            left:0;
-            width: 100%;
-            padding-left: 15px;
-            font-weight: bold;
-            background-color: brown;
-            color: wheat;
-        }
-
-        .chat-log-name{
-            color: orangered;
-        }
-
-        .row {
-            height: 100%;
-            padding-top: 30px;
-            padding-bottom: 5px;
+    .general-info-container, .education-info-container {
+        padding: 20px;
+        min-height: 500px;
+        box-shadow: 3px 3px 0px grey;
+        display: flex;
+        flex-direction: column;
+        .space-filler {
+            flex: 1 0 auto;
         }
     }
 
-    .character-img {
-        // background-image: linear-gradient(grey, transparent);
-        // border: 2px lightgray solid;
-        border-radius: 5px;
-        .base-img{
-            width: 100%;
+    .general-info-container {
+        background-color: snow;
+        padding-bottom: 5px; 
+        .title {
+            flex: 0 0 auto;
+            align-self: baseline;
             position: relative;
-            z-index: 5;
+            span { 
+                color: grey;
+                opacity: 0.3;
+                text-transform: uppercase;
+                font-size: 4rem;
+                font-weight: bold;
+                @include absolute-position(0,0);
+                transform: translate(50%,-50%);
+            }
         }
     }
-
-    .item-container {
-        width: 20%;
-        padding-top: 20%;
-        position: relative;
-
-        .item{
-            content: ' ';
-            background-color: lightgray;
-            width: 80%;
-            height: 80%;
-            border-radius: 5px;
-            position: absolute;
-            top: 50%;
-            right: 50%;
-            transform: translate(50%,-50%);
+    .education-info-container {
+        background-color: $dark;
+        color: white;
+        .title {
+            flex: 0 0 auto;
+            align-self: flex-start;
+            position: relative;
+            width: 100%;
+            text-align: end;
+            span { 
+                color: grey;
+                opacity: 0.3;
+                text-transform: uppercase;
+                font-size: 4rem;
+                font-weight: bold;
+                @include absolute-position(0,0);
+                transform: translate(0,-50%);
+            }
         }
     }
-
-    .item-list {
-        margin: 5px 0;
-        background-color: white;
-        border-radius: 5px;
-        border: 2px solid lightgray;
-
-    }
-
-    .chat-log-container {
-        height: 100%;
-        overflow: auto;
-    }
-    
-    .selected-item-container{
-        background-color: lightgray;
-        width: 80%;
-        height: 80%;
-        border-radius: 5px;
-
-    }
-
-    .message-0 {
-        -webkit-animation-name: message-occur;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-fill-mode: backwards;
-        -webkit-animation-delay: 1.5s;
-        -webkit-animation-timing-function: steps(1);
-        animation-name: message-occur;
-        animation-duration: 1s;
-        animation-fill-mode: backwards;
-        margin-top: 10px;
-        animation-delay: 1.5s;
-        animation-timing-function: steps(1);
-        
-    }
-
-    .message-1 {
-        -webkit-animation-name: message-occur;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-fill-mode: backwards;
-        -webkit-animation-delay: 3.5s;
-        -webkit-animation-timing-function: steps(1);
-        animation-name: message-occur;
-        animation-duration: 1s;
-        animation-fill-mode: backwards;
-        margin-top: 10px;
-        animation-delay: 3.5s;
-        animation-timing-function: steps(1);
-
-    }
-    .message-2 {
-        -webkit-animation-name: message-occur;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-fill-mode: backwards;
-        -webkit-animation-delay: 5.5s;
-        -webkit-animation-timing-function: steps(1);
-        animation-name: message-occur;
-        animation-duration: 1s;
-        animation-fill-mode: backwards;
-        margin-top: 10px;
-        animation-delay: 5.5s;
-        animation-timing-function: steps(1);
-    }
-    .message-3 {
-        -webkit-animation-name: message-occur;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-fill-mode: backwards;
-        -webkit-animation-delay: 7.5s;
-        -webkit-animation-timing-function: steps(1);
-        animation-name: message-occur;
-        animation-duration: 1s;
-        animation-fill-mode: backwards;
-        margin-top: 10px;
-        animation-delay: 7.5s;
-        animation-timing-function: steps(1);
-    }
 }
 
-@keyframes message-occur {
-    from {position:absolute; opacity: 0;}
-    to {position:relative; opacity: 1;}
-}
 
-@-webkit-keyframes message-occur {
-    from {position:absolute; opacity: 0;}
-    to {position:relative; opacity: 1;}
-}
 
 section.skills {
+    flex-direction: column;
+    position: relative;
     .container {
         height: 100%;
-    }
+        flex: 1 0 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    } 
+    background-color: gray;
     h1 {
+        color: snow;
+        text-transform: uppercase;
+        width: 100%;
+        align-self: flex-start;
+        flex: 0 0 auto;
         text-align: center;
+        font-weight: bold;
     }
-    .character-img {
-        .base-img{
-            width: 100%;
-            position: relative;
+
+    .skills-icon {
+        min-height: 50px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+            background-color: grey;
+        }
+
+        span:hover {
+            cursor: pointer;
+            @include animation(skill-hover,1s,0s,1,forwards);
         }
     }
+
+    .skills-text {
+        min-height: 200px;
+    }
 }
+
+
 
 section.projects {
     .container {
@@ -387,15 +355,3 @@ section.projects {
     }
 
 }
-
-@keyframes occur {
-    from {opacity:0;}
-    to {opacity:1;}
-}
-
-@-webkit-keyframes occur {
-    from {opacity:0;}
-    to {opacity:1;}
-}
-
-

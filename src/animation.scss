@@ -1,0 +1,75 @@
+@-webkit-keyframes button-hover {
+    from {width: 0}
+    to {width: 100%}
+}
+
+@keyframes button-hover {
+    from {width: 0}
+    to {width: 100%}
+}
+
+@-webkit-keyframes loading{
+    0% {left:-40px; top:0;}
+    50% {left:100%; top:0;}
+    100% {left:-40px; top:0;}
+}
+
+@keyframes loading {
+    0% {left:-40px; top:0;}
+    50% {left:100%; top:0;}
+    100% {left:-40px; top:0;}
+}
+
+@-webkit-keyframes blink {
+    0% {opacity: 0.5;}
+    50% {opacity: 1;}
+    100% {opacity: 0.5;}
+}
+
+@keyframes blink {
+    0% {opacity: 0.5;}
+    50% {opacity: 1;}
+    100% {opacity: 0.5;}
+}
+
+@-webkit-keyframes slide-up {
+    0% {left: 0; top:0; position: absolute;}
+    50% {left: 0; top: -80vh; position: absolute;}
+    100% {left: 0; top: -160vh; visibility: hidden;}
+}
+
+@keyframes slide-up {
+    0% {left: 0; top:0; position: absolute;}
+    50% {left: 0; top: -80vh; position: absolute;}
+    100% {left: 0; top: -160vh; visibility: hidden;}
+}
+
+@keyframes message-occur {
+    from {position:absolute; opacity: 0;}
+    to {position:relative; opacity: 1;}
+}
+
+@-webkit-keyframes message-occur {
+    from {position:absolute; opacity: 0;}
+    to {position:relative; opacity: 1;}
+}
+
+@keyframes occur {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+@-webkit-keyframes occur {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+@-webkit-keyframes skill-hover {
+    from {transform: scale(1);}
+    to {transform: scale(1.5);}
+}
+
+@keyframes skill-hover {
+    from {transform: scale(1);}
+    to {transform: scale(1.5);}
+}
