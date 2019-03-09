@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.scss';
 import Main from './components/MainComponent';
@@ -17,9 +18,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className={this.state.isLoading? 'App':'App loaded'}>
-        <Main />
-      </div>
+      <BrowserRouter>
+        <div className={this.state.isLoading? 'App':'App loaded'}>
+          <Main />
+        </div>
+      </BrowserRouter>
     );
   }
 }

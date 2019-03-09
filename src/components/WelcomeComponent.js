@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 
 export default class Welcome extends Component {
 
@@ -15,9 +15,6 @@ export default class Welcome extends Component {
     }
 
     componentDidMount() {
-        const currentAngle = this.state.eyePosition;
-        console.log(this.leftEye.current.getBoundingClientRect());
-        console.log(this.rightEye.current.getBoundingClientRect());
 
     }
 
@@ -64,14 +61,16 @@ export default class Welcome extends Component {
                                 </ruby> 
                                 &nbsp;
                                 <ruby>
-                                    Wang<rt>王</rt>&nbsp;
+                                    Wang.<rt>王</rt>&nbsp;
                                 </ruby>
                             </h1>
                             <h2>
-                                A Front-end web developer.
+                                Looking for a <span className="highlight"><span></span>Front-end Web Developer</span>?
                             </h2>
-                            <p>
-                            </p>
+                            <div>
+                                <Link to="/about" className="about-btn button"><span></span>About me</Link>
+                                <Link to="/projects" className="project-btn button"><span></span>My projects</Link>
+                            </div>
                         </div>
                         <div className="col-12 col-md-5 welcome-img">
                             <img className="base-img" src="assets/images/hi.svg" alt="hi" ></img>
