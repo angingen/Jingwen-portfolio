@@ -9,7 +9,15 @@ import NavSide from './NavComponent';
 import Loading from './LoadingComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
+import { fetchProjects } from '../redux/ActionCreator';
 
+const mapStateToProps = state => ({
+    projects: state.projects
+});
+
+const mapDispatchToProps = dispatch => ({
+    fetchProjects: () => {dispatch(fetchProjects())}
+})
 
 class Main extends Component {
     constructor(props) {
@@ -17,7 +25,7 @@ class Main extends Component {
     }
 
     componentDidMount() {
-
+        this.props.fetchProjects();
     }
 
     render(){
@@ -41,4 +49,4 @@ class Main extends Component {
 
 }
 
-export default withRouter(Main);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Main));
