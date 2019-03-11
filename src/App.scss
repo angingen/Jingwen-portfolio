@@ -425,6 +425,8 @@ section.projects {
             img.mockup-img {
                 position: absolute;
                 z-index: 1;
+                -webkit-transition: opacity 1s;
+                transition: opacity 1s;
             }
         }
 
@@ -439,16 +441,17 @@ section.projects {
         }
 
         .project-img-container{
-            .animation-mask-in{
-                @include animation(button-hover,1.5s,0s,1,backwards);
-            }
-            .animation-mask-out{
-                transform: rotate(180deg);
-                @include animation(reveal,2s,0.5s,1,forwards);
-                background-color: $dk-red;
-            }
+            // .animation-mask-in{
+            //     @include animation(button-hover,1.5s,0s,1,backwards);
+            // }
+            // .animation-mask-out{
+            //     transform: rotate(180deg);
+            //     @include animation(reveal,2s,0.5s,1,forwards);
+            //     background-color: $dk-red;
+            // }
             img.mockup-img {
-                @include animation(img-up,1s,1s,1,forwards);
+                // @include animation(img-up,1s,1s,1,forwards);
+                opacity: 0;
             }
         }
     }
