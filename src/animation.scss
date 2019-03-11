@@ -120,11 +120,11 @@ $dk-red: #C24332;
 }
 
 @-webkit-keyframes img-up {
-    from {z-index:-1;}
-    to {z-index: 1}
+    from {z-index:1;}
+    to {z-index: -1}
 }
 
 @keyframes img-up {
-    from {z-index:-1;}
-    to {z-index: 1}
+    from {z-index:1;}
+    to {z-index: -1}
 }
