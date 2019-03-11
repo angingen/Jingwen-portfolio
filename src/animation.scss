@@ -1,3 +1,6 @@
+
+$dk-red: #C24332;
+
 @-webkit-keyframes button-hover {
     from {width: 0}
     to {width: 100%}
@@ -84,4 +87,44 @@
 @keyframes rise {
     from {left:0; top:1000;}
     to {left:0; top:0;}
+}
+
+@-webkit-keyframes reveal {
+    0% {width: 0%}
+    50% {width: 100%}
+    75% {width: 100%}
+    100% {width: 0}
+}
+
+@keyframes reveal reveal {
+    0% {width: 0%}
+    50% {width: 100%}
+    75% {width: 100%}
+    100% {width: 0}
+}
+
+@-webkit-keyframes switch {
+    0% {width: 0}
+    25% {width: 100%; background-color: $pl-dark;}
+    50% {width: 100%; background-color: $dk-red;}
+    75% {width: 100%; background-color: $dk-red;}
+    100% {width: 0; background-color: $dk-red;}
+}
+
+@keyframes switch {
+    0% {width: 0}
+    25% {width: 100%; background-color: $pl-dark;}
+    50% {width: 100%; background-color: $dk-red;}
+    75% {width: 100%; background-color: $dk-red;}
+    100% {width: 0; background-color: $dk-red;}
+}
+
+@-webkit-keyframes img-up {
+    from {z-index:-1;}
+    to {z-index: 1}
+}
+
+@keyframes img-up {
+    from {z-index:-1;}
+    to {z-index: 1}
 }

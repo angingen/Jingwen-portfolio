@@ -3,6 +3,10 @@ $lt-grey: #6b7580;
 $pl-dark: #424951;
 $lt-dark: #98a8b8;
 $cream-white: #F9F7F0;
+$pte-blue: #355B94;
+$bootstrap-p: #563b7e;
+$bootstrap-y: #fce27d;
+$gulp-r: #d04744;
 
 
 @import 'animation';
@@ -39,6 +43,21 @@ html, body {
     flex-direction: column;
 }
 
+.align-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.badge-purple {
+    color: $bootstrap-y;
+    background-color: $bootstrap-p;
+}
+
+.badge-red {
+    color: white;
+    background-color: $gulp-r;
+}
 section {
     min-height: 600px;
     flex: 1 0 auto;
@@ -83,11 +102,15 @@ footer {
     color: $dark;
     position: relative;
     box-shadow: 2px 2px 0px grey;
-    span {
+    span:nth-child(1) {
         @include absolute-position(0,0);
         height: 100%;
         background-color: $dark;
         z-index: -10;
+    }
+    span:nth-child(2) {
+        height: 100%;
+        width: 199%;
     }
 }
 
@@ -95,7 +118,7 @@ footer {
     text-decoration: none;
     color: white;
 
-    span{
+    span:nth-child(1) {
         @include animation(button-hover,0.5s,0s,1,forwards);
     }
 }
@@ -200,9 +223,10 @@ section.about {
         flex-direction: column;
         justify-content: center;
     } 
-    background-color: $pl-dark;
+    // background-color: $pl-dark;
     h1 {
-        color: snow;
+        outline-offset: 5px;
+        // color: snow;
         text-transform: uppercase;
         width: 100%;
         align-self: flex-start;
@@ -217,6 +241,7 @@ section.about {
         box-shadow: 3px 3px 0px $lt-grey;
         display: flex;
         flex-direction: column;
+        outline-offset: -5px;
         .space-filler {
             flex: 1 0 auto;
         }
@@ -225,6 +250,7 @@ section.about {
     .general-info-container {
         background-color: snow;
         padding-bottom: 5px; 
+        outline: 1px solid $dark;
         .title {
             flex: 0 0 auto;
             align-self: baseline;
@@ -233,7 +259,7 @@ section.about {
                 color: $pl-dark;
                 opacity: 0.3;
                 text-transform: uppercase;
-                font-size: 4rem;
+                font-size: 3.5rem;
                 font-weight: bold;
                 @include absolute-position(0,0);
                 transform: translate(50%,-50%);
@@ -243,6 +269,7 @@ section.about {
     .education-info-container {
         background-color: $dark;
         color: white;
+        outline: 1px solid snow;
         .title {
             flex: 0 0 auto;
             align-self: flex-start;
@@ -253,10 +280,10 @@ section.about {
                 color: $pl-dark;
                 opacity: 0.3;
                 text-transform: uppercase;
-                font-size: 4rem;
+                font-size: 3.5rem;
                 font-weight: bold;
                 @include absolute-position(0,0);
-                transform: translate(0,-50%);
+                transform: translate(0,-20%);
             }
         }
     }
@@ -331,27 +358,126 @@ section.skills {
 
 
 section.projects {
+    flex-direction: column;
+    position: relative;
     .container {
         height: 100%;
+        flex: 1 0 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     } 
-    background-color: snow;
     h1 {
+        text-transform: uppercase;
+        width: 100%;
+        align-self: flex-start;
+        flex: 0 0 auto;
         text-align: center;
+        font-weight: bold;
     }
-    .character-img {
-        .base-img{
-            width: 100%;
+
+    .project-container{
+        h2 {
+            font-weight: bold;
+        }
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .project-img-container {
+            min-height: 200px;
+            background-color: $lt-dark;
+            display: flex;
+            flex-direction: column;
             position: relative;
+            img {
+                width: 100%;
+                height: auto;
+                outline: 2px solid black;
+            }
+            .img-bg {
+                position: absolute;
+                top:10px;
+                left: 10px;
+                background-color: $lt-dark;
+                width:100%;
+                height: 100%;
+                z-index: -1;
+            }
+
+            .animation-mask-in, .animation-mask-out {
+                position: absolute;
+                width:0;
+                height: 100%;
+                background-color: $pl-dark;
+                z-index: 10;
+    
+            }
+
+            img.mockup-img {
+                position: absolute;
+                z-index: -1;
+            }
+        }
+
+        .project-intro{
+            flex: 1 1 auto;
         }
     }
-    .project-card{
-        align-self: center;
-        background-color: red;
-        min-height: 400px;
-        width: 50%;
 
+    .project-container:hover {
+        h2 {
+            color: $pte-blue;
+        }
+
+        .project-img-container{
+            .animation-mask-in{
+                @include animation(button-hover,1.5s,2s,1,backwards);
+            }
+            .animation-mask-out{
+                transform: rotate(180deg);
+                @include animation(reveal,2s,2.5s,1,forwards);
+                background-color: $dk-red;
+            }
+            img.mockup-img {
+                @include animation(img-up,1s,3s,1,forwards);
+            }
+        }
     }
-    
+
+    // place holder for broken img link
+    img {
+        min-height: 400px;
+    }
+
+    img:before { 
+        content: " ";
+        display: block;
+        position: absolute;
+        top: -10px;
+        left: 0;
+        height: calc(100% + 10px);
+        width: 100%;
+        background-color: snow;
+        outline: $dark 2px solid;
+    }
+        
+        img:after { 
+        content: "Broken Image of " attr(alt);
+        display: block;
+        font-size: 16px;
+        font-style: normal;
+        font-family: FontAwesome;
+        color: rgb(100, 100, 100);
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        text-align: center;
+        transform: translate(-50%,-50%);
+    }
+    // end of place holder
+
 }
 
 .nav-container{
@@ -379,3 +505,4 @@ section.projects {
     }
 
 }
+
