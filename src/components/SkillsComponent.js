@@ -8,29 +8,37 @@ export default class Skills extends Component {
             <h1>My Skills</h1>
             <div className="container">
                 <div className="row d-flex align-items-stretch">
-                    <div className="col-12 col-md-3 skills-icon order-0 order-md-0">
-                        <span className="fab fa-3x fa-html5"></span>
+                    <div className="col-12 col-md-6 col-lg-3 html">
+                        <div className="col-12 skills-icon">
+                            <span className="fab fa-3x fa-html5"></span>
+                        </div>
+                        <div className="col-12 skills-text">
+                            <div>I am confident of writing a clear structure with <span className="keyword">HTML</span> and using semantic elements when appropriate. I also aware of the importance of <span className="keyword">accessibility</span> and <span className="keyword">SEO</span>. </div>
+                        </div>
                     </div>
-                    <div className="col-12 col-md-3 skills-icon order-2 order-md-1">
-                        <span className="fab fa-3x fa-css3-alt"></span>
+                    <div className="col-12 col-md-6 col-lg-3 css">
+                        <div className="col-12 skills-icon">
+                            <span className="fab fa-3x fa-css3-alt"></span>
+                        </div>
+                        <div className="col-12 skills-text">
+                            <div>I am comfortable with <span className="keyword">CSS</span> styling (with or without frameworks such as <span className="keyword">Bootstrap</span>) and care about the user experience across different devices by using <span className="keyword">responsive web design</span>. I also think about <span className="keyword">browser compatibility</span> when applying CSS properties. </div>
+                        </div>
                     </div>
-                    <div className="col-12 col-md-3 skills-icon order-4 order-md-2">
-                        <span className="fab fa-3x fa-js"></span>
+                    <div className="col-12 col-md-6 col-lg-3 js">
+                        <div className="col-12 skills-icon">
+                            <span className="fab fa-3x fa-js"></span>
+                        </div>
+                        <div className="col-12 skills-text">
+                            <div>I am confident of using <span className="keyword">JavaScript</span> to add functionality and interactivity to my websites. I pursuit writing clear, clean and effective codes and take browser compatibility into consideration. I am comfortable with writing <span className="keyword">React</span> application and manage states using <span className="keyword">Redux</span>. I also learned how to setup a simple <span className="keyword">Node.js</span> serve.</div>
+                        </div>
                     </div>
-                    <div className="col-12 col-md-3 skills-icon order-6 order-md-3">
-                        <span className="fas fa-3x fa-laptop"></span>
-                    </div>
-                    <div className="col-12 skills-text order-1 order-md-4">
-                    HTML
-                    </div>
-                    <div className="col-12 skills-text order-3 order-md-5">
-                    CSS
-                    </div>
-                    <div className="col-12 skills-text order-5 order-md-6">
-                    JavaScript
-                    </div>
-                    <div className="col-12 skills-text order-7 order-md-7">
-                    Tools
+                    <div className="col-12 col-md-6 col-lg-3 tools">
+                        <div className="col-12 skills-icon">
+                            <span className="fas fa-3x fa-laptop"></span>
+                        </div>
+                        <div className="col-12 skills-text">
+                            <div>I am familiar with CSS preprocessor <span className="keyword">SASS</span> and I know how to configure tasks by <span className="keyword">Gulp</span>. I also have knowledge of using <span className="keyword">Git</span> and prefer writing clear and conventional commits. </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,7 @@
-$dark: #212529;
-$lt-grey: #DDDAD8;
+$dark: #343a40;
+$lt-grey: #6b7580;
+$pl-dark: #424951;
+$lt-dark: #98a8b8;
 $cream-white: #F9F7F0;
 
 
@@ -198,7 +200,7 @@ section.about {
         flex-direction: column;
         justify-content: center;
     } 
-    background-color: gray;
+    background-color: $pl-dark;
     h1 {
         color: snow;
         text-transform: uppercase;
@@ -212,7 +214,7 @@ section.about {
     .general-info-container, .education-info-container {
         padding: 20px;
         min-height: 500px;
-        box-shadow: 3px 3px 0px grey;
+        box-shadow: 3px 3px 0px $lt-grey;
         display: flex;
         flex-direction: column;
         .space-filler {
@@ -228,7 +230,7 @@ section.about {
             align-self: baseline;
             position: relative;
             span { 
-                color: grey;
+                color: $pl-dark;
                 opacity: 0.3;
                 text-transform: uppercase;
                 font-size: 4rem;
@@ -248,7 +250,7 @@ section.about {
             width: 100%;
             text-align: end;
             span { 
-                color: grey;
+                color: $pl-dark;
                 opacity: 0.3;
                 text-transform: uppercase;
                 font-size: 4rem;
@@ -272,9 +274,9 @@ section.skills {
         flex-direction: column;
         justify-content: center;
     } 
-    background-color: gray;
+    background-color: white;
     h1 {
-        color: snow;
+        color: black;
         text-transform: uppercase;
         width: 100%;
         align-self: flex-start;
@@ -283,24 +285,46 @@ section.skills {
         font-weight: bold;
     }
 
+    .css, .tools {
+        padding: 10px 10px 20px 10px;
+        background-color: snow;
+        outline: 1px solid $lt-dark;
+        outline-offset: -5px;
+    }
+
+    .html, .js {
+        padding: 10px 10px 20px 10px;
+        background-color: $lt-dark;
+        outline: 1px solid snow;
+        outline-offset: -5px;
+    }
+
+    .html:hover, .css:hover, .js:hover, .tools:hover{
+        
+        cursor: pointer;
+        .skills-icon span{
+            @include animation(skill-hover,1s,0s,infinite,forwards);
+        }
+    }
+
     .skills-icon {
         min-height: 50px;
         padding: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
-        span {
-            background-color: grey;
-        }
+        margin-bottom: 10px;
 
-        span:hover {
-            cursor: pointer;
-            @include animation(skill-hover,1s,0s,1,forwards);
+        span {
+            background-color: transparent;
         }
     }
 
     .skills-text {
         min-height: 200px;
+        span.keyword {
+            font-weight: bold;
+        }
     }
 }
 
