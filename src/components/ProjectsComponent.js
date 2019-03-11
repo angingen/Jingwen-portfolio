@@ -1,26 +1,16 @@
 import React, { Component } from 'react';
 
-function RenderProjectContainer() {
-    return (
-         <div className="project-card">
 
-         </div>
-    );
-}
-
-export default class Projects extends Component {
+export default class Skills extends Component {
     render() {
         return (
-            <section className="projects" id="projects-section">
-                <div className="container">
-                    <h1>My Projects</h1>
-                    <div className="row">
-                        <div className="col-12">
-                            <RenderProjectContainer />
-                        </div>
-                        <div className="col-12"></div>
-                    </div>
+            <section className="skills" id="skills-section">
+            <h1>My Projects</h1>
+            <div className="container">
+                <div className="row d-flex align-items-stretch">
+                    
                 </div>
+            </div>
             </section>
         );
     }
