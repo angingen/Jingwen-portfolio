@@ -7,6 +7,14 @@ $pte-blue: #355B94;
 $bootstrap-p: #563b7e;
 $bootstrap-y: #fce27d;
 $gulp-r: #d04744;
+$js-y: #f7e200;
+$react-bk: #282c34;
+$react-bl: #5ed9fd;
+$redux-p: #783fc4;
+$node-gr: #66a25e;
+$node-bk: #303030;
+
+
 
 
 @import 'animation';
@@ -54,12 +62,32 @@ html, body {
     justify-content: center;
 }
 
-.badge-purple {
+.badge {
+    margin-left: 2px;
+}
+
+.badge-JavaScript {
+    @include button($js-y, black);
+}
+
+.badge-Bootstrap {
     @include button($bootstrap-p, $bootstrap-y);
 }
 
-.badge-red {
+.badge-Gulp {
     @include button($gulp-r, white);
+}
+
+.badge-React {
+    @include button($react-bk, $react-bl);
+}
+
+.badge-Redux {
+    @include button($redux-p, white);
+}
+
+.badge-Node {
+    @include button($node-bk, $node-gr)
 }
 
 section {
@@ -386,12 +414,14 @@ section.projects {
 
     .project-container{
         h2 {
-            font-weight: bold;
+            transition: font-weight 0.5s;
+            -webkit-transition: font-weight 0.5s;
         }
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        margin-top: 50px;
+        margin-top: 30px;
+        margin-bottom: 20px;
         .project-img-container {
             min-height: 200px;
             background-color: $lt-dark;
@@ -437,20 +467,11 @@ section.projects {
 
     .project-container:hover {
         h2 {
-            color: $pte-blue;
+            font-weight: bold;
         }
 
         .project-img-container{
-            // .animation-mask-in{
-            //     @include animation(button-hover,1.5s,0s,1,backwards);
-            // }
-            // .animation-mask-out{
-            //     transform: rotate(180deg);
-            //     @include animation(reveal,2s,0.5s,1,forwards);
-            //     background-color: $dk-red;
-            // }
             img.mockup-img {
-                // @include animation(img-up,1s,1s,1,forwards);
                 opacity: 0;
             }
         }
