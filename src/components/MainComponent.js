@@ -39,7 +39,7 @@ class Main extends Component {
                     <Route exact path="/skills" component={()=>
                         <Skills />} />
                     <Route exact path="/projects" component={()=>
-                        <Projects />} />
+                        <Projects projects={this.props.projects} />} />
                     <Redirect to="/home" />
                 </Switch>
                 <NavSide />
