@@ -13,6 +13,7 @@ $react-bl: #5ed9fd;
 $redux-p: #783fc4;
 $node-gr: #66a25e;
 $node-bk: #303030;
+$pte-red: #C24332;
 
 
 
@@ -483,6 +484,10 @@ section.projects {
         }
     }
 
+
+}
+
+section.projects, section.project-demo {
     // place holder for broken img link
     img {
         min-height: 400px;
@@ -516,28 +521,87 @@ section.projects {
         transform: translate(-50%,-50%);
     }
     // end of place holder
-
 }
 
 section.project-demo {
+    padding: 0px;
     flex-direction: column;
     position: relative;
-    .section-title-container{
-        width: 100%;
-        * {
-            text-align: center;
+    article {
+        padding: 10px;
+        h2 {
+            position: relative;
+            color: $pte-red;
+            font-size: bold;
+            span { 
+                color: $pte-red;
+                opacity: 0.3;
+                text-transform: uppercase;
+                font-size: 2rem;
+                font-weight: bold;
+                @include absolute-position(2%,30%);
+                // transform: translate(50%,-50%);
+            }
         }
 
-        h1 {
+        .row {
+            padding-bottom: 30px;
+            padding-top: 10px;
+        }
+
+        .c2r-contianer {
+            .color-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                div {
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 50%;
+                    text-align: center;
+                    vertical-align: middle;
+                    line-height: 100px;
+                    margin: 10px;
+                    font-weight: bold;
+                }
+                
+            }
+            .color-des {
+                margin-top: 10px;
+                font-style: italic;
+            }
+        }
+    }
+    .section-title-container{
+        width: 100%;
+        background-color: $pte-red;
+        * {
+            text-align: center;
+            color: white;
             font-weight: bold;
         }
 
-        h2 {
+        div:nth-child(1) {
             font-size: 1.25rem;
         }
 
-        h3 {
-            font-size: 1rem;
+        div.publish-date {
+            padding: 5px;
+            background-color: wheat;
+            z-index: 1;
+            color: $dark;
+            font-size: 1.1rem;
+            position: relative;
+        }
+    }
+
+    .intro-container {
+        div:nth-child(1){
+            display: flex;
+            justify-content: center;
+        }
+        img {
+            align-self: center;
         }
     }
     .container {
@@ -548,9 +612,38 @@ section.project-demo {
         justify-content: center;
         .keyword-cloud{
             max-width: 450px;
+            width: 100%;
         }
     } 
 
+    .subsection {
+        h3 {
+            font-size: 0.9rem;
+            order: 0;
+        }
+    }
+
+    .section-footer {
+        background-color: $pl-dark;
+        height: 70px;
+        width: 100%;
+        * {
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        .row {
+            justify-content: space-between;
+        }
+        .footer-link {
+            display: inline-block;
+            height: 30px;
+            vertical-align: middle;
+            line-height: 30px;
+            padding: 0 10px;
+            text-decoration: underline;
+        }
+    }
 
 }
 
