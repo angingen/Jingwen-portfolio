@@ -1,0 +1,32 @@
+[
+    {
+      "title": "Online PTE Timer",
+      "keywords": ["JavaScript","Bootstrap","Gulp"],
+      "description": "An online timer for the PTE exam test-takers to use during practicing the speaking section.",
+      "demo": "/projects/online-pte-timer",
+      "repo": "https://github.com/angingen/online-pte-timer",
+      "page": "https://angingen.github.io/online-pte-timer/",
+      "poster": {
+        "screenshot":"images/online-pte-timer-1.png",
+        "screenshotAlt":"online pte timer screenshot",
+        "mockup":"images/online-pte-timer-2.png",
+        "mockupAlt":"online pte timer UI mockup"
+      },
+      "publish": "Jan 2019"
+    },
+    {
+        "title": "Random To-do List Generator",
+        "keywords": ["JavaScript","React","Redux","Node"],
+        "description": "A web application that could randomly pick tasks based on the users’ preference form a task library and generate a to-do list.",
+        "demo": "/projects/random-todo-list-generator",
+        "repo": "https://github.com/angingen/random-todo-list-generator",
+        "page": "https://randomtodolistgenerator.herokuapp.com/",
+        "poster": {
+          "screenshot":"images/RtdLG-1.png",
+          "screenshotAlt":"Random to-do list generator screenshot",
+          "mockup":"images/RtdLG-2.png",
+          "mockupAlt":"Random to-do list generator UI mockup"
+        },
+        "publish": "March 2019"
+      }
+]
