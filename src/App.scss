@@ -63,7 +63,7 @@ html, body {
 }
 
 .badge {
-    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .badge-JavaScript {
@@ -461,7 +461,13 @@ section.projects {
         }
 
         .project-intro{
-            flex: 1 1 auto;
+            margin-top: 10px;
+        }
+
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     }
 
@@ -510,6 +516,41 @@ section.projects {
         transform: translate(-50%,-50%);
     }
     // end of place holder
+
+}
+
+section.project-demo {
+    flex-direction: column;
+    position: relative;
+    .section-title-container{
+        width: 100%;
+        * {
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        h3 {
+            font-size: 1rem;
+        }
+    }
+    .container {
+        height: 100%;
+        flex: 1 0 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .keyword-cloud{
+            max-width: 450px;
+        }
+    } 
+
 
 }
 

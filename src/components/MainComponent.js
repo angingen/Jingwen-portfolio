@@ -9,6 +9,8 @@ import NavSide from './NavComponent';
 import Loading from './LoadingComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
+import ProjectDemo from './ProjectDemoComponent';
+
 import { fetchProjects } from '../redux/ActionCreator';
 
 const mapStateToProps = state => ({
@@ -40,6 +42,8 @@ class Main extends Component {
                         <Skills />} />
                     <Route exact path="/projects" component={()=>
                         <Projects projects={this.props.projects} />} />
+                    <Route exact path="/projects/online-pte-timer" component={()=>
+                        <ProjectDemo />} />
                     <Redirect to="/home" />
                 </Switch>
                 <NavSide />
