@@ -24,7 +24,7 @@ function RenderProject({projects}) {
                         <p>{project.description}</p>
                     </div>
                     <div className="d-none d-md-block">
-                        <Link to={project.demo} className="about-btn button"><span></span><span>Project Demo</span></Link>
+                        <Link to={`/projects/${project.id}`} className="about-btn button"><span></span><span>Project Demo</span></Link>
                     </div>
                     <div className="d-none d-md-block">
                         <a href={project.page} target="_blank" rel="noopener noreferrer" className="project-btn button"><span></span><span>View Website</span></a>

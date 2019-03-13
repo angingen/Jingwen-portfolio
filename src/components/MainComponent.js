@@ -45,6 +45,15 @@ class Main extends Component {
       }
 
     render(){
+
+        const ProjectSelected = ({match}) => {
+            return(
+              <ProjectDemo project={this.props.projects.projects.filter((project) => project.id === match.params.projectId)[0]} 
+                isLoading={this.props.projects.isLoading}
+                errMess={this.props.projects.errMess} />
+            );
+        }
+        
         return (
             <React.Fragment>
                 <Header />
@@ -56,8 +65,7 @@ class Main extends Component {
                         <Skills />} />
                     <Route exact path="/projects" component={()=>
                         <Projects projects={this.props.projects} />} />
-                    <Route exact path="/projects/online-pte-timer" component={()=>
-                        <ProjectDemo projects={this.props.projects} />} />
+                    <Route path="/projects/:projectId" component={ProjectSelected} />
                     <Redirect to="/home" />
                 </Switch>
                 <NavSide showNavUp={this.state.showNavUp} />
