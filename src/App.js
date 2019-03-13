@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({isLoading: false})
+    this.setState({isLoading: false});
   }
 
   render() {

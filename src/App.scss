@@ -653,7 +653,7 @@ section.project-demo {
     box-shadow: 1px 1px 5px grey;
     background-color: white;
     width: 40px;
-    top: 50%;
+    bottom: 80px;
     right: 0;
     border-radius: 5px;
     transform: translate(-50%,-50%);
@@ -663,13 +663,21 @@ section.project-demo {
         align-items: center;
     }
     
-    span {
+    i {
         color: gray;
     }
+    opacity: 0.5;
+}
 
-    span:hover {
-        color: rgb(112, 62, 62);
+.nav-container:hover {
+    cursor: pointer;
+    i {
+        color: $dark;
     }
+    opacity: 1;
+}
 
+.hidden {
+    visibility: hidden;
 }
 

@@ -22,13 +22,27 @@ const mapDispatchToProps = dispatch => ({
 })
 
 class Main extends Component {
-    constructor(props) {
+    constructor(props){
         super(props);
-    }
-
-    componentDidMount() {
+        this.state = {
+          showNavUp: false
+        }
+        this.onScroll = this.onScroll.bind(this);
+      }
+    
+      componentDidMount() {
         this.props.fetchProjects();
-    }
+        window.addEventListener('scroll',this.onScroll);
+      }
+    
+      onScroll() {
+        var heightTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (heightTop > 60 && !this.state.showNavUp) {
+          this.setState({showNavUp:true})
+        } else if (heightTop <= 60 && this.state.showNavUp) {
+          this.setState({showNavUp:false})
+        }
+      }
 
     render(){
         return (
@@ -43,10 +57,10 @@ class Main extends Component {
                     <Route exact path="/projects" component={()=>
                         <Projects projects={this.props.projects} />} />
                     <Route exact path="/projects/online-pte-timer" component={()=>
-                        <ProjectDemo />} />
+                        <ProjectDemo projects={this.props.projects} />} />
                     <Redirect to="/home" />
                 </Switch>
-                <NavSide />
+                <NavSide showNavUp={this.state.showNavUp} />
                 {/* <Footer /> */}
             </React.Fragment>
     )}

@@ -4,30 +4,22 @@ import { Nav, NavItem, NavLink } from 'reactstrap';
 export default class NavSide extends Component {
     constructor(props) {
         super(props);
+        this.scrollToTop = this.scrollToTop.bind(this);
         this.state = {
-            currentSection: 'welcome'
+            show: false
         }
     }
 
+    scrollToTop() {
+        window.scroll({top:0, left:0, behavior: 'smooth'});
+    }
 
     render() {
         return(
-            <div className="nav-container">
+            <div className={this.props.showNavUp? "nav-container":"hidden"} onClick={this.scrollToTop}>
                 <Nav vertical>
                     <NavItem>
-                        <NavLink href="#welcome-section" className={this.currentSection === "home"? "nav-link-active":""}><span className="fa fa-sm fa-home" ></span></NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="#about-section" className={this.currentSection === "about"? "nav-link-active":""}><span className="fa fa-sm fa-user" ></span></NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="#skills-section" className={this.currentSection === "skills"? "nav-link-active":""}><span className="fa fa-sm fa-desktop" ></span></NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="#projects-section" className={this.currentSection === "projects"? "nav-link-active":""}><span className="fa fa-sm fa-folder" ></span></NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="#" className={this.currentSection === "contact"? "nav-link-active":""}><span className="fa fa-sm fa-envelope" ></span></NavLink>
+                        <div className="nav-link"><i className="fas fa-lg fa-caret-square-up"></i></div>
                     </NavItem>
                 </Nav>
             </div>
