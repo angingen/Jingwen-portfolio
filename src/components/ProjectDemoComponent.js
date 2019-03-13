@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 import { Badge } from 'reactstrap';
 import { baseURL } from '../shared/baseURL';
 
+function RenderColor ({colorScheme}) {
+    return (
+        colorScheme.map((color) => 
+            <div className="color" style={{backgroundColor: color, color: "white"}}>{color}</div>
+        )
+    );
+}
+
 function RenderProject ({project, isLoading, errMess}) {
     if (isLoading) {
         return (
@@ -50,11 +58,7 @@ function RenderProject ({project, isLoading, errMess}) {
                             </div>
                             <div className="col-12 d-flex justify-content-center m-3"><h2>Color Scheme<span>Color</span></h2></div>
                             <div className="color-container col-12">
-                                <div className="color" style={{backgroundColor: "red", color: "white"}}>color</div>
-                                <div className="color" style={{backgroundColor: "red", color: "white"}}>color</div>
-                                <div className="color" style={{backgroundColor: "red", color: "white"}}>xxxxx</div>
-                                <div className="color" style={{backgroundColor: "red", color: "white"}}>xxxxx</div>
-                                <div className="color" style={{backgroundColor: "red", color: "white"}}>xxxxx</div>
+                                <RenderColor colorScheme={project.colorScheme} />
                             </div>
                             <div className="col-12 color-des">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
                         </div>
@@ -81,10 +85,6 @@ export default class ProjectDemo extends Component {
 
     constructor(props) {
         super(props);
-    }
-
-    componentDidMount() {
-        window.scrollTo(0,0);
     }
 
     componentWillUnmount() {
