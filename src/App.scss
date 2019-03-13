@@ -643,6 +643,7 @@ section.project-demo {
             padding: 0 10px;
             text-decoration: underline;
         }
+
     }
 
 }
@@ -679,5 +680,27 @@ section.project-demo {
 
 .hidden {
     visibility: hidden;
+}
+
+header {
+    a.active {
+        opacity: 1;
+        font-weight: bold;
+        position: relative;
+    }
+
+    a.active::after {
+        content: ' ';
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid $dark;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translate(-50%,50%);
+        z-index: 10;
+    }
 }
 
