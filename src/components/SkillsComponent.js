@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 
 export default class Skills extends Component {
+    componentWillUnmount() {
+        window.scroll({top:0, left:0, behavior: 'smooth'});
+    }
+
     render() {
         return (
             <section className="skills" id="skills-section">

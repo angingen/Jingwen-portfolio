@@ -12,14 +12,10 @@ export default class About extends Component {
         this.setState({isMount: true})
     }
 
-    componentWillMount() {
-        this.setState({isMount: false})
-    }
-
     render() {
         return (
             <section className={this.state.isMount? "about mounted" :"about"} id="about-section">
-                <h1>About Me</h1>
+                <div><h1><span className="h1-filler"></span>About Me</h1></div>
                 <div className="container">
                     <div className="row d-flex align-items-stretch">
                         <div className="col-12 col-md-6 general-info-container">

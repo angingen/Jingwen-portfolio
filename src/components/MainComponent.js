@@ -24,25 +24,40 @@ const mapDispatchToProps = dispatch => ({
 class Main extends Component {
     constructor(props){
         super(props);
-        this.state = {
-          showNavUp: false
-        }
-        this.onScroll = this.onScroll.bind(this);
+        // this.state = {
+        //   showNavUp: false
+        // }
+        // this.onScroll = this.onScroll.bind(this);
+        this.scrollToTop = this.scrollToTop.bind(this);
       }
     
-      componentDidMount() {
+    componentDidMount() {
         this.props.fetchProjects();
-        window.addEventListener('scroll',this.onScroll);
-      }
-    
-      onScroll() {
-        var heightTop = document.documentElement.scrollTop || document.body.scrollTop;
-        if (heightTop > 60 && !this.state.showNavUp) {
-          this.setState({showNavUp:true})
-        } else if (heightTop <= 60 && this.state.showNavUp) {
-          this.setState({showNavUp:false})
-        }
-      }
+        // window.scrollTo(0,0);
+        // window.addEventListener('scroll',this.onScroll); 
+    }
+
+    // onScroll() {
+    //     var heightTop = document.documentElement.scrollTop || document.body.scrollTop;
+    //     if (heightTop > 60 && !this.state.showNavUp) {
+    //         this.setState({showNavUp:true})
+    //     } else if (heightTop <= 60 && this.state.showNavUp) {
+    //         this.setState({showNavUp:false})
+    //     }
+    // }
+
+    // onScroll() {
+    //     var heightTop = document.documentElement.scrollTop || document.body.scrollTop;
+    //     if (heightTop > 60) {
+    //         return true;
+    //     } else if (heightTop <= 60) {
+    //         return false;
+    //     }
+    // }
+
+    scrollToTop() {
+        window.scroll({top:0, left:0, behavior: 'smooth'});
+    }
 
     render(){
 
@@ -50,7 +65,8 @@ class Main extends Component {
             return(
               <ProjectDemo project={this.props.projects.projects.filter((project) => project.id === match.params.projectId)[0]} 
                 isLoading={this.props.projects.isLoading}
-                errMess={this.props.projects.errMess} />
+                errMess={this.props.projects.errMess} 
+                scrollToTop={this.props.scrollToTop} />
             );
         }
         
@@ -59,16 +75,18 @@ class Main extends Component {
                 <Header />
                 <Loading />
                 <Switch>
-                    <Route exact path="/home" component={Welcome} />
+                    <Route exact path="/home" component={ ()=> 
+                        <Welcome scrollToTop={this.props.scrollToTop} />} />
                     <Route exact path="/about" component={About} />
                     <Route exact path="/skills" component={()=>
                         <Skills />} />
                     <Route exact path="/projects" component={()=>
-                        <Projects projects={this.props.projects} />} />
+                        <Projects projects={this.props.projects} 
+                            scrollToTop={this.props.scrollToTop} />} />
                     <Route path="/projects/:projectId" component={ProjectSelected} />
                     <Redirect to="/home" />
                 </Switch>
-                <NavSide showNavUp={this.state.showNavUp} />
+                <NavSide scrollToTop={this.scrollToTop}/>
                 {/* <Footer /> */}
             </React.Fragment>
     )}

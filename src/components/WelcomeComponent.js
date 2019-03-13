@@ -14,8 +14,8 @@ export default class Welcome extends Component {
         }
     }
 
-    componentDidMount() {
-
+    componentWillUnmount() {
+        window.scroll({top:0, left:0, behavior: 'smooth'});
     }
 
     handelMouseMove(event) {
@@ -68,8 +68,8 @@ export default class Welcome extends Component {
                                 Looking for a <span className="highlight"><span></span>Front-end Web Developer</span>?
                             </h2>
                             <div>
-                                <Link to="/about" className="about-btn button"><span></span>About me</Link>
-                                <Link to="/projects" className="project-btn button"><span></span>My projects</Link>
+                                <Link to="/about" className="about-btn button" onClick={this.props.scrollToTop}><span></span>About me</Link>
+                                <Link to="/projects" className="project-btn button" onClick={this.props.scrollToTop}><span></span>My projects</Link>
                             </div>
                         </div>
                         <div className="col-12 col-md-5 welcome-img">

@@ -4,19 +4,28 @@ import { Nav, NavItem, NavLink } from 'reactstrap';
 export default class NavSide extends Component {
     constructor(props) {
         super(props);
-        this.scrollToTop = this.scrollToTop.bind(this);
         this.state = {
-            show: false
-        }
+            showNavUp: false
+          }
+        this.onScroll = this.onScroll.bind(this);
     }
 
-    scrollToTop() {
-        window.scroll({top:0, left:0, behavior: 'smooth'});
+    componentDidMount() {
+        window.addEventListener('scroll',this.onScroll); 
+    }
+
+    onScroll() {
+        var heightTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (heightTop > 60 && !this.state.showNavUp) {
+            this.setState({showNavUp:true})
+        } else if (heightTop <= 60 && this.state.showNavUp) {
+            this.setState({showNavUp:false})
+        }
     }
 
     render() {
         return(
-            <div className={this.props.showNavUp? "nav-container":"hidden"} onClick={this.scrollToTop}>
+            <div className={this.state.showNavUp? "nav-container":"hidden"} onClick={this.props.scrollToTop}>
                 <Nav vertical>
                     <NavItem>
                         <div className="nav-link"><i className="fas fa-lg fa-caret-square-up"></i></div>

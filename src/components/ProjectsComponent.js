@@ -35,7 +35,7 @@ function RenderProject({projects}) {
                 </div>
                 <div className="col-12 d-block d-md-none order-2">
                     <div className="d-inline-block">
-                        <Link to={project.demo} className="about-btn button"><span></span><span>Project Demo</span></Link>
+                        <Link to={`/projects/${project.id}`} className="about-btn button"><span></span><span>Project Demo</span></Link>
                     </div>
                     <div className="d-inline-block">
                         <a href={project.page} target="_blank" rel="noopener noreferrer" className="project-btn button"><span></span><span>View Website</span></a>
@@ -91,6 +91,10 @@ export default class Projects extends Component {
             onHoverEle : null,
             animationActive : false
         }
+    }
+
+    componentWillUnmount() {
+        window.scroll({top:0, left:0, behavior: 'smooth'});
     }
 
     render() {

@@ -84,7 +84,11 @@ export default class ProjectDemo extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.project);
+        window.scrollTo(0,0);
+    }
+
+    componentWillUnmount() {
+        window.scroll({top:0, left:0, behavior: 'smooth'});
     }
 
     render() {
