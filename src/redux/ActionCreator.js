@@ -37,3 +37,7 @@ export const fetchProjects = () => (dispatch) => {
         .then(projects => dispatch(addProjects(projects)))
         .catch(error => dispatch(projectsFailed(error.message)));
 }
+
+export const toggleModal = () => (dispatch) => dispatch({
+    type: ActionTypes.TOGGLE
+});

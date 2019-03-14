@@ -1,5 +1,80 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Row, Col, Label, Button } from "reactstrap";
+import { Control, Form, Errors } from 'react-redux-form';
+import { toggleModal } from '../redux/ActionCreator';
+
+// const required = (val) => val && val.length;
+// const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+
+const required = (val) => val && val.length;
+const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val)
+
+
+function RenderForm({submitHandler,toggleModal}) {
+    return (
+        <Form model="contactForm" onSubmit={submitHandler}>
+            <Row className="form-group">
+                <Label htmlFor="name" md={12}>Name *</Label>
+                <Col md={12}>
+                    <Control.text model=".name" id="name" name="name"
+                        className="form-control" 
+                        validators= {{required}} />
+                    <Errors className="text-danger"
+                        model=".name"
+                        show="touched"
+                        messages={{
+                            required:'please leave a name.'}
+                        } />
+                </Col>
+            </Row>
+
+            <Row className="form-group">
+                <Label htmlFor="email" md={12}>E-mail *</Label>
+                <Col md={12}>
+                    <Control.text model=".email" id="email" name="email"
+                        className="form-control" 
+                        validators= {{validEmail}} />
+                    <Errors className="text-danger"
+                        model=".email"
+                        show="touched"
+                        messages={{
+                            validEmail: 'please enter a valid email address.'
+                        }} />
+                </Col>
+            </Row>
+
+            <Row className="form-group">
+                <Label htmlFor="message" md={12}>Message *</Label>
+                <Col md={12}>
+                    <Control.textarea model=".message" id="message" name="message"
+                        className="form-control" 
+                        rows="4"
+                        validators= {{required}} />
+                    <Errors className="text-danger"
+                        model=".message"
+                        show="touched"
+                        messages={
+                            {required:'please leave a message.'}
+                        } />
+                </Col>
+            </Row>
+
+            <Row className="form-group">
+                <Col md={12} className="form-buttons">
+                    <button className="button cancle-btn" onClick={toggleModal}><span></span>
+                        Cancle
+                    </button>
+                    <button type="submit" className="button submit-btn" onClick={submitHandler}><span></span>
+                        Send Message
+                    </button>
+                </Col>
+            </Row>
+        </Form>
+
+        
+    );
+}
 
 export default class Contact extends Component {
 
@@ -9,13 +84,14 @@ export default class Contact extends Component {
         this.rightEye = React.createRef();
         this.leftEye = React.createRef();
         this.state = {
-            eyePositionL: 180,
-            eyePositionR: 180
+            eyePositionL: 0,
+            eyePositionR: 0
         }
+        this.submitHandler = this.submitHandler.bind(this);
     }
 
-    componentWillUnmount() {
-        window.scroll({top:0, left:0, behavior: 'smooth'});
+    submitHandler() {
+        console.log('*******!');
     }
 
     handelMouseMove(event) {
@@ -60,7 +136,7 @@ export default class Contact extends Component {
                             <img className="base-img-eye-left" id="leftEye" ref={this.leftEye} src="assets/images/eye.svg" alt="left-eye" style={{transform:`rotate(${this.state.eyePositionL}deg)`}}></img>
                         </div>
                         <div className="col-12 col-md-7 welcome-text">
-                            
+                            <RenderForm submitHandler={this.submitHandler} toggleModal={this.props.toggleModal}/>
                         </div>
                     </div>
                 </div>

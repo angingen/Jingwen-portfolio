@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem} from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler,
+    NavbarBrand, Nav, NavItem,
+    Button,
+    Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+
 import { NavLink } from 'react-router-dom';
+import Contact from './ContactComponent';
+import { connect } from 'react-redux';
+import { toggleModal } from '../redux/ActionCreator';
+
+const mapStateToProps = state => ({
+  modalIsOpen: state.modalIsOpen
+});
+
+const mapDispatchToProps = dispatch => ({
+  toggleModal: () => {dispatch(toggleModal())}
+})
   
-export default class Header extends Component {
+class Header extends Component {
     constructor(props) {
       super(props);
       this.toggle = this.toggle.bind(this);
       this.state = {
-        isOpen: false,
-        activeLink: 'home'
+        isOpen: false
       };
     }
 
@@ -43,17 +57,23 @@ export default class Header extends Component {
                     <NavLink className="nav-link" to='/projects' activeClassName="active">Projects</NavLink>
                     <span></span>
                 </NavItem>
-
                 <NavItem>
-                    <NavLink className="nav-link" to='/contact' activeClassName="active">Contact</NavLink>
-                    <span></span>
+                    <Button color="warning" onClick={this.props.toggleModal}><span></span>Contact</Button>
                 </NavItem>
               </Nav>
             </Collapse>
             </div>
           </Navbar>
+          <Modal isOpen={this.props.modalIsOpen} toggle={this.props.toggleModal} >
+            <ModalHeader toggle={this.props.toggleModal}>Contact me</ModalHeader>
+            <ModalBody>
+              <Contact toggleModal={this.props.toggleModal} />
+            </ModalBody>
+          </Modal>
+
         </header>
       );
     }
   }
   
+  export default connect(mapStateToProps,mapDispatchToProps)(Header)

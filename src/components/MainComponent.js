@@ -61,7 +61,6 @@ class Main extends Component {
                         <Projects projects={this.props.projects} 
                             scrollToTop={this.props.scrollToTop} />} />
                     <Route path="/projects/:projectId" component={ProjectSelected} />
-                    <Route exact path="/contact" component={Contact} />
                     <Redirect to="/home" />
                 </Switch>
                 <NavSide scrollToTop={this.scrollToTop}/>
