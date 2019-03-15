@@ -131,9 +131,9 @@ export default class Contact extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-md-5 welcome-img">
-                            <img className="base-img" src="assets/images/mail.svg" alt="avatar with mailbox" ></img>
-                            <img className="base-img-eye-right" id="rightEye" ref={this.rightEye} src="assets/images/eye.svg" alt="right-eye" style={{transform:`rotate(${this.state.eyePositionR}deg)`}}></img>
-                            <img className="base-img-eye-left" id="leftEye" ref={this.leftEye} src="assets/images/eye.svg" alt="left-eye" style={{transform:`rotate(${this.state.eyePositionL}deg)`}}></img>
+                            <img className="base-img" src="/assets/images/mail.svg" alt="avatar with mailbox" ></img>
+                            <img className="base-img-eye-right" id="rightEye" ref={this.rightEye} src="/assets/images/eye.svg" alt="right-eye" style={{transform:`rotate(${this.state.eyePositionR}deg)`}}></img>
+                            <img className="base-img-eye-left" id="leftEye" ref={this.leftEye} src="/assets/images/eye.svg" alt="left-eye" style={{transform:`rotate(${this.state.eyePositionL}deg)`}}></img>
                         </div>
                         <div className="col-12 col-md-7 welcome-text">
                             <RenderForm submitHandler={this.submitHandler} toggleModal={this.props.toggleModal}/>

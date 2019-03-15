@@ -73,9 +73,9 @@ export default class Welcome extends Component {
                             </div>
                         </div>
                         <div className="col-12 col-md-5 welcome-img">
-                            <img className="base-img" src="assets/images/hi.svg" alt="hi" ></img>
-                            <img className="base-img-eye-right" id="rightEye" ref={this.rightEye} src="assets/images/eye.svg" alt="right-eye" style={{transform:`rotate(${this.state.eyePositionR}deg)`}}></img>
-                            <img className="base-img-eye-left" id="leftEye" ref={this.leftEye} src="assets/images/eye.svg" alt="left-eye" style={{transform:`rotate(${this.state.eyePositionL}deg)`}}></img>
+                            <img className="base-img" src="/assets/images/hi.svg" alt="hi" ></img>
+                            <img className="base-img-eye-right" id="rightEye" ref={this.rightEye} src="/assets/images/eye.svg" alt="right-eye" style={{transform:`rotate(${this.state.eyePositionR}deg)`}}></img>
+                            <img className="base-img-eye-left" id="leftEye" ref={this.leftEye} src="/assets/images/eye.svg" alt="left-eye" style={{transform:`rotate(${this.state.eyePositionL}deg)`}}></img>
                         </div>
                     </div>
                 </div>
