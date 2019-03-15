@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Collapse, Navbar, NavbarToggler,
     NavbarBrand, Nav, NavItem,
     Button,
-    Modal, ModalHeader, ModalBody} from 'reactstrap';
+    Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Contact from './ContactComponent';
   
 class Header extends Component {
@@ -27,7 +27,7 @@ class Header extends Component {
         <header>
           <Navbar color="dark" dark expand="md">
             <div className="container">
-            <NavLink className="navbar-brand" to="/home"><strong>Jing</strong></NavLink>
+            <Link className="navbar-brand" to="/home"><strong>Jing</strong></Link>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
