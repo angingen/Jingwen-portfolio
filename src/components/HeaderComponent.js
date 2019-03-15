@@ -2,20 +2,10 @@ import React, { Component } from 'react';
 import { Collapse, Navbar, NavbarToggler,
     NavbarBrand, Nav, NavItem,
     Button,
-    Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+    Modal, ModalHeader, ModalBody} from 'reactstrap';
 
 import { NavLink } from 'react-router-dom';
 import Contact from './ContactComponent';
-import { connect } from 'react-redux';
-import { toggleModal } from '../redux/ActionCreator';
-
-const mapStateToProps = state => ({
-  modalIsOpen: state.modalIsOpen
-});
-
-const mapDispatchToProps = dispatch => ({
-  toggleModal: () => {dispatch(toggleModal())}
-})
   
 class Header extends Component {
     constructor(props) {
@@ -76,4 +66,4 @@ class Header extends Component {
     }
   }
   
-  export default connect(mapStateToProps,mapDispatchToProps)(Header)
+  export default Header

@@ -12,14 +12,16 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import ProjectDemo from './ProjectDemoComponent';
 
-import { fetchProjects } from '../redux/ActionCreator';
+import { fetchProjects, toggleModal } from '../redux/ActionCreator';
 
 const mapStateToProps = state => ({
-    projects: state.projects
+    projects: state.projects,
+    modalIsOpen: state.modalIsOpen
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchProjects: () => {dispatch(fetchProjects())}
+    fetchProjects: () => {dispatch(fetchProjects())},
+    toggleModal: () => {dispatch(toggleModal())}
 })
 
 class Main extends Component {
@@ -49,7 +51,7 @@ class Main extends Component {
         
         return (
             <React.Fragment>
-                <Header />
+                <Header modalIsOpen={this.props.modalIsOpen} toggleModal={this.props.toggleModal} />
                 <Loading />
                 <Switch>
                     <Route exact path="/home" component={ ()=> 
