@@ -1,12 +1,89 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge } from 'reactstrap';
+import { Carousel, CarouselItem, CarouselControl, CarouselCaption,CarouselIndicators } from 'reactstrap';
 import { baseURL } from '../shared/baseURL';
+
+class ProjectPic extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { activeIndex: 0 };
+        this.next = this.next.bind(this);
+        this.previous = this.previous.bind(this);
+        this.goToIndex = this.goToIndex.bind(this);
+        this.onExiting = this.onExiting.bind(this);
+        this.onExited = this.onExited.bind(this);
+    }
+
+    onExiting() {
+        this.animating = true;
+    }
+
+        onExited() {
+        this.animating = false;
+    }
+
+        next() {
+        if (this.animating) return;
+        const nextIndex = this.state.activeIndex === this.props.items.length - 1 ? 0 : this.state.activeIndex + 1;
+        this.setState({ activeIndex: nextIndex });
+    }
+
+        previous() {
+        if (this.animating) return;
+        const nextIndex = this.state.activeIndex === 0 ? this.props.items.length - 1 : this.state.activeIndex - 1;
+        this.setState({ activeIndex: nextIndex });
+    }
+
+        goToIndex(newIndex) {
+        if (this.animating) return;
+        this.setState({ activeIndex: newIndex });
+    }
+        
+    render() {
+        const { activeIndex } = this.state;
+    
+        const slides = this.props.items.map((item) => {
+          return (
+            <CarouselItem onExiting={this.onExiting}
+              onExited={this.onExited}
+              key={item.src}>
+              <img src={item.src} alt={item.altText} />
+              <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+            </CarouselItem>
+          );
+        });
+    
+        return (
+          <Carousel activeIndex={activeIndex} next={this.next} previous={this.previous} >
+            <CarouselIndicators items={this.props.items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+                {slides}
+            <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+            <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+          </Carousel>
+        );
+    }
+}
 
 function RenderColor ({colorScheme}) {
     return (
-        colorScheme.map((color) => 
-            <div className="color" style={{backgroundColor: color, color: "white"}}>{color}</div>
+        colorScheme.map((color,index) => 
+            <div className="color" style={{backgroundColor: color, color: "white"}} key={index}>{color}</div>
+        )
+    );
+}
+
+function RenderFeatures ({features}) {
+    return (
+        features.map((feature,index) =>
+            <li key={index}>{feature}</li>  
+        )
+    );
+}
+
+function RenderRealization ({realization}) {
+    return (
+        realization.map((paragraph,index) =>
+            <p key={index}>{paragraph}</p>
         )
     );
 }
@@ -21,11 +98,21 @@ function RenderProject ({project, isLoading, errMess}) {
             <div>{errMess}</div>
         );
     } else {
+
+        const items = project.image.map((image) => {
+            return {
+                src: baseURL + image.url,
+                altText: image.caption,
+                caption: ""
+            }
+        });
+
         return (
             <React.Fragment>
                 <div className="section-title-container">
                     <div>{'Project Title'.toUpperCase()}</div>
-                    <h1>{project.title}r</h1>
+                    <h1>{project.title}</h1>
+                    <p>{project.description}</p>
                     <div className="publish-date">{"Publish: "+ project.publish}</div>
                 </div>
                 <article>
@@ -35,32 +122,35 @@ function RenderProject ({project, isLoading, errMess}) {
                                 <img className="keyword-cloud" src={baseURL+project.wordcloud} alt="project keyword cloud"></img>
                             </div>
                             <div className="col-12 col-md-4 order-1 order-md-2 align-center">
-                                <h2>Project Intro<span>Introduction</span></h2>
+                                <h2>Project Introduction<span>Introduction</span></h2>
                                 
                             </div>
                             <div className="col-12 col-md-8 order-2 order-md-1">
                                 {project.intro}
                             </div>
+                            <div className="col-12 order-3 align-center">
+                                <h2>Project Features<span>Features</span></h2>
+                                
+                            </div>
+                            <div className="col-12 col-md-6 order-4">
+                                <ProjectPic items={items}/>
+                            </div>
+                            <div className="col-12 col-md-6 order-5">
+                                <ul><RenderFeatures features={project.features}/></ul>
+                            </div>
                         </div>
                         <div className="row c2r-contianer">
                             <div className="col-12 order-0">
-                                <h2>Concept to Reality<span>Realization</span></h2>
+                                <h2>Implementation<span>Implementation</span></h2>
                             </div>
                             <div className="row subsection">
-                                <div className="col-12 order-0"><h3>Structure & Style</h3></div>
-                                <div className="col-12 col-md-6 order-1">image</div>
-                                <div className="col-12 col-md-6 order-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                            </div>
-                            <div className="row subsection">
-                                <div className="col-12 order-0"><h3>Functionality</h3></div>
-                                <div className="col-12 col-md-6 order-1 order-md-2">image</div>
-                                <div className="col-12 col-md-6 order-2 order-md-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                                < div className="col-12"><RenderRealization realization={project.realization} /></div>
                             </div>
                             <div className="col-12 d-flex justify-content-center m-3"><h2>Color Scheme<span>Color</span></h2></div>
                             <div className="color-container col-12">
                                 <RenderColor colorScheme={project.colorScheme} />
                             </div>
-                            <div className="col-12 color-des">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                            <div className="col-12 color-des">{project.colorSchemeExp}</div>
                         </div>
                         <div className="row demo-container">
 

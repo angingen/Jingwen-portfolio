@@ -143,6 +143,7 @@ footer {
         width: 0%;
         transition: width 0.5s;
         -webkit-transition: width 0.5s;
+        background-color: $dark;
     }
     span:nth-child(2) {
         height: 100%;
@@ -646,6 +647,39 @@ section.project-demo {
 
     }
 
+    .carousel-item {
+        img {
+            width: 100%;
+        }
+
+        h3 {
+            display: none;
+        }
+
+        p {
+            color: $dark;
+        }
+    }
+
+    .carousel {
+        .carousel-control-next-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='343a40' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+        }
+        
+        .carousel-control-prev-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='343a40' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+        }
+
+        .carousel-indicators {
+            li {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: $dark;
+            }
+        }
+    }
+
 }
 
 .nav-container{
@@ -704,3 +738,21 @@ header {
     }
 }
 
+.modal-dialog {
+    max-width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+section.contact {
+    .form-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .submit-btn {
+        color: $pte-red;
+        border-color: $pte-red;
+    }
+}

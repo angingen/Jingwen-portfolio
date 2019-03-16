@@ -15,8 +15,20 @@
       },
       "publish": "Jan 2019",
       "wordcloud":"images/pte-w.svg",
-      "intro": "This project is inspired by my own experience of preparing the PTE exam (a computer-based academic English test). When practicing the speaking section, I found it is inconvenient to manually set up two timers to count down the preparation time and speaking time sequentially. As a result, I built an easy-to-use online timer which is similar to the one in real test so that it could help PTE test-takers to practice more efficiently and get less distractions. ",
-      "colorScheme": ["#61B087","#355B94","#C24332","#8e3125","#6F91B5"]
+      "intro": "This is my first project after I learned basics of HTML, CSS and JavaScript. It is inspired by my own experience of preparing the PTE exam (a computer-based academic English test). When practicing the speaking section, I found it is inconvenient to manually set up two timers to count down the preparation time and speaking time sequentially. As a result, I built an easy-to-use online timer which is similar to the one in real test so that it could help PTE test-takers to practice more efficiently and get less distractions. ",
+      "image": [{"url":"images/pte-f-1.png","caption":"Three default timers and a custom timer"},
+        {"url":"images/pte-f-4.png","caption":"Digital countdown"},
+        {"url":"images/pte-f-2.png","caption":"Progress bar countdown"},
+        {"url":"images/pte-f-3.png","caption":"Progress bar countdown paused"}],
+      "features": ["A digital countdown and progress bar countdown that similar to the real PTE exam countdowns.",
+        "Input fields for users to adjust the length of the countdowns.",
+        "Toggle buttons to switch ON/OFF the two countdowns.",
+        "A Toggle button to show/hide the remaining seconds of the progress bar countdown.",
+        "Control buttons to start, pause and cancel the current timer."],
+      "realization": ["Beside of HTML and CSS, the UI design is implemented by using Bootstrap classes and components (such as navigation bar, form and modal). The counting down mechanism is achieved by using JavaScript to decrease the remaining time by one per second. For the digital countdown, its remaining time is displayed by using jQuery selector and JavaScript to change the content inside its HTML element. Similarly, for the progress bar countdown, the passing time is represented by the width of the progress bar which can also be change by modifying its CSS style.",
+        "In terms of reducing repetitive tasks during web development and deployment, I used Gulp to automate tasks such as watching Sass file, compiling Sass into CSS, minification and Uglification, etc."],
+      "colorScheme": ["#61B087","#6F91B5","#355B94","#C24332","#8E3125"],
+      "colorSchemeExp": "“When designing the online timer, I want to make sure the users will not get distracted and could focus on their practices. I believe using this set of colors, which is not too bright, could create a sense of calm.”"
     },
     {
         "id" : "random-todo-list",  
@@ -35,6 +47,18 @@
         "publish": "March 2019",
         "wordcloud":"images/random-w.svg",
         "intro": "I felt I did not make any improvement beside of doing the same things every day, so I came up with a solution for myself that is randomly picking up a small task to accomplish each day. However, with the list of tasks become longer, it is inefficient to control which tasks should be included for the random pick that day. After learned React, I found it is a great opportunity to turn this idea into a web application with an improved tasks selection system and more tasks. ",
-        "colorScheme": ["#FEFAD4","#8FB9A8","#FCD0BA","#F1828D","#765D69"]
+        "image": [{"url":"images/random-f-1.png","caption":"Task preference form"},
+          {"url":"images/random-f-2.png","caption":"To-do list customizing form"},
+          {"url":"images/random-f-5.png","caption":"Generated to-do list"},
+          {"url":"images/random-f-3.png","caption":"Task Library"},
+          {"url":"images/random-f-4.png","caption":"Task proposal form with form validation"}],
+        "features": ["A task preference form for users to limit the task selections to their needs.",
+          "A to-do list generator which selects the task based on the users preference and available time of the week.",
+          "A task library with filters to show different categories of tasks.",
+          "A task proposal form for users to propose their own tasks but will be evaluated by myself before adding to the library. ",
+          "(server-side) A RESTful API offers tasks informations and stores user proposed tasks."],
+        "realization": ["Random to-do list generator is a single page application created using React.js. React Redux Form is used to create the task proposal form, tasks preference form and the to-do list customization form. The states of forms and tasks information are managed by a Redux store connected to my React components. Moreover, a simple RESTful API is built with Node.js Express. It serves up the tasks information and allows the client-side to fetching tasks information and posting task proposals. "],        
+        "colorScheme": ["#FEFAD4","#8FB9A8","#FCD0BA","#F1828D","#765D69"],
+        "colorSchemeExp": "“The goal of this project is to add a bit freshness to the daily routine by including some small random challenges. Therefore, the color combination picked for this web application is generally bright and soft, which brings a relaxed feeling.”"
       }
 ]
