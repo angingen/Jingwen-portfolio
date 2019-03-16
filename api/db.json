@@ -2,6 +2,7 @@
     {
       "id" : "online-pte-timer",
       "title": "Online PTE Timer",
+      "themeColor": {"title":"#C24332", "publish":"#f0d3d4"},
       "keywords": ["JavaScript","Bootstrap","Gulp"],
       "description": "An online timer for the PTE exam test-takers to use during practicing the speaking section.",
       "demo": "/projects/online-pte-timer",
@@ -28,11 +29,13 @@
       "realization": ["Beside of HTML and CSS, the UI design is implemented by using Bootstrap classes and components (such as navigation bar, form and modal). The counting down mechanism is achieved by using JavaScript to decrease the remaining time by one per second. For the digital countdown, its remaining time is displayed by using jQuery selector and JavaScript to change the content inside its HTML element. Similarly, for the progress bar countdown, the passing time is represented by the width of the progress bar which can also be change by modifying its CSS style.",
         "In terms of reducing repetitive tasks during web development and deployment, I used Gulp to automate tasks such as watching Sass file, compiling Sass into CSS, minification and Uglification, etc."],
       "colorScheme": ["#61B087","#6F91B5","#355B94","#C24332","#8E3125"],
+      "colorSchemeText": "white",
       "colorSchemeExp": "“When designing the online timer, I want to make sure the users will not get distracted and could focus on their practices. I believe using this set of colors, which is not too bright, could create a sense of calm.”"
     },
     {
         "id" : "random-todo-list",  
         "title": "Random To-do List Generator",
+        "themeColor": {"title":"#00456e", "publish":"#5fc499"},
         "keywords": ["JavaScript","React","Redux","Node"],
         "description": "A web application that could randomly pick tasks based on the users’ preference form a task library and generate a to-do list.",
         "demo": "/projects/random-todo-list-generator",
@@ -46,7 +49,7 @@
         },
         "publish": "March 2019",
         "wordcloud":"images/random-w.svg",
-        "intro": "I felt I did not make any improvement beside of doing the same things every day, so I came up with a solution for myself that is randomly picking up a small task to accomplish each day. However, with the list of tasks become longer, it is inefficient to control which tasks should be included for the random pick that day. After learned React, I found it is a great opportunity to turn this idea into a web application with an improved tasks selection system and more tasks. ",
+        "intro": "I felt I did not make any improvement beside of doing the same things every day, so I came up with a solution for myself that is randomly picking up a small task to accomplish each day. However, with the list of tasks become longer, it is inefficient to control which tasks should be included for the random selection that day. After learned React, I found it is a great opportunity to turn this idea into a web application with an improved tasks selection system and a larger task library. ",
         "image": [{"url":"images/random-f-1.png","caption":"Task preference form"},
           {"url":"images/random-f-2.png","caption":"To-do list customizing form"},
           {"url":"images/random-f-5.png","caption":"Generated to-do list"},
@@ -59,6 +62,7 @@
           "(server-side) A RESTful API offers tasks informations and stores user proposed tasks."],
         "realization": ["Random to-do list generator is a single page application created using React.js. React Redux Form is used to create the task proposal form, tasks preference form and the to-do list customization form. The states of forms and tasks information are managed by a Redux store connected to my React components. Moreover, a simple RESTful API is built with Node.js Express. It serves up the tasks information and allows the client-side to fetching tasks information and posting task proposals. "],        
         "colorScheme": ["#FEFAD4","#8FB9A8","#FCD0BA","#F1828D","#765D69"],
+        "colorSchemeText": "black",
         "colorSchemeExp": "“The goal of this project is to add a bit freshness to the daily routine by including some small random challenges. Therefore, the color combination picked for this web application is generally bright and soft, which brings a relaxed feeling.”"
       }
 ]
