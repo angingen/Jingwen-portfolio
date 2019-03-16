@@ -64,10 +64,10 @@ class ProjectPic extends Component {
     }
 }
 
-function RenderColor ({colorScheme}) {
+function RenderColor ({colorScheme, colorSchemeText}) {
     return (
         colorScheme.map((color,index) => 
-            <div className="color" style={{backgroundColor: color, color: "white"}} key={index}>{color}</div>
+            <div className="color" style={{backgroundColor: color, color: colorSchemeText}} key={index}>{color}</div>
         )
     );
 }
@@ -109,11 +109,11 @@ function RenderProject ({project, isLoading, errMess}) {
 
         return (
             <React.Fragment>
-                <div className="section-title-container">
+                <div className="section-title-container" style={{backgroundColor: project.themeColor.title}}>
                     <div>{'Project Title'.toUpperCase()}</div>
                     <h1>{project.title}</h1>
                     <p>{project.description}</p>
-                    <div className="publish-date">{"Publish: "+ project.publish}</div>
+                    <div className="publish-date"style={{backgroundColor: project.themeColor.publish}}>{"Publish: "+ project.publish}</div>
                 </div>
                 <article>
                     <div className="container">
@@ -121,36 +121,39 @@ function RenderProject ({project, isLoading, errMess}) {
                             <div className="col-12 order-0">
                                 <img className="keyword-cloud" src={baseURL+project.wordcloud} alt="project keyword cloud"></img>
                             </div>
-                            <div className="col-12 col-md-4 order-1 order-md-2 align-center">
+                            <div className="col-12 col-md-4 order-1 order-md-2 align-center sub-heading align-items-end" style={{color: project.themeColor.title}}>
                                 <h2>Project Introduction<span>Introduction</span></h2>
                                 
                             </div>
                             <div className="col-12 col-md-8 order-2 order-md-1">
                                 {project.intro}
                             </div>
-                            <div className="col-12 order-3 align-center">
+                            <div className="col-12 order-3 breaker"></div>
+                            <div className="col-12 order-4 sub-heading" style={{color: project.themeColor.title}}>
                                 <h2>Project Features<span>Features</span></h2>
                                 
                             </div>
-                            <div className="col-12 col-md-6 order-4">
+                            <div className="col-12 col-md-6 order-5">
                                 <ProjectPic items={items}/>
                             </div>
-                            <div className="col-12 col-md-6 order-5">
+                            <div className="col-12 col-md-6 order-6 align-center">
                                 <ul><RenderFeatures features={project.features}/></ul>
                             </div>
                         </div>
                         <div className="row c2r-contianer">
-                            <div className="col-12 order-0">
+                            <div className="col-12 breaker"></div>
+                            <div className="col-12 col-md-4 sub-heading align-center" style={{color: project.themeColor.title}}>
                                 <h2>Implementation<span>Implementation</span></h2>
                             </div>
-                            <div className="row subsection">
-                                < div className="col-12"><RenderRealization realization={project.realization} /></div>
+                            <div className="col-12 col-md-8"><RenderRealization realization={project.realization} /></div>
+                            <div className="col-12 breaker"></div>
+                            <div className="col-12 d-flex justify-content-center m-3" style={{color: project.themeColor.title}}>
+                                <h2>Color Scheme<span>Color</span></h2>
                             </div>
-                            <div className="col-12 d-flex justify-content-center m-3"><h2>Color Scheme<span>Color</span></h2></div>
                             <div className="color-container col-12">
-                                <RenderColor colorScheme={project.colorScheme} />
+                                <RenderColor colorScheme={project.colorScheme} colorSchemeText={project.colorSchemeText}/>
                             </div>
-                            <div className="col-12 color-des">{project.colorSchemeExp}</div>
+                            <div className="col-12 color-des"><p>{project.colorSchemeExp}</p></div>
                         </div>
                         <div className="row demo-container">
 

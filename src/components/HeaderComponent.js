@@ -54,6 +54,7 @@ class Header extends Component {
             </Collapse>
             </div>
           </Navbar>
+          
           <Modal isOpen={this.props.modalIsOpen} toggle={this.props.toggleModal} >
             <ModalHeader toggle={this.props.toggleModal}>Contact me</ModalHeader>
             <ModalBody>

@@ -49,6 +49,18 @@ html, body {
     width: 100%;
     padding: 0;
     margin: 0;
+    font-family: 'Rokkitt', serif;
+}
+h1,h2,h3,h5 {
+    font-family: 'Teko', sans-serif;
+}
+
+p {
+    font-family: 'Slabo 27px', serif;
+}
+
+.breaker {
+    margin-top: 40px; 
 }
 
 .App {
@@ -60,6 +72,12 @@ html, body {
 .align-center {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.align-center-horizontal {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
 }
 
@@ -91,6 +109,10 @@ html, body {
     @include button($node-bk, $node-gr)
 }
 
+ruby rt {
+    font-weight: bold;
+}
+
 section {
     min-height: 600px;
     flex: 1 0 auto;
@@ -99,11 +121,6 @@ section {
     align-items: center;
     h1 {
         margin-top: 10px;
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
     }
     padding: 10px;
 
@@ -217,6 +234,7 @@ section.welcome, section.contact {
 
     h2 {
         font-size: 1.5rem;
+        font-style: italic;
     }
 
     .welcome-img {
@@ -353,13 +371,15 @@ section.skills {
     .css, .tools {
         padding: 10px 10px 20px 10px;
         background-color: snow;
-        outline: 1px solid $lt-dark;
+        outline: 1px solid $dark;
         outline-offset: -5px;
     }
 
     .html, .js {
         padding: 10px 10px 20px 10px;
-        background-color: $lt-dark;
+        background-color: $dark;
+        color: snow;
+
         outline: 1px solid snow;
         outline-offset: -5px;
     }
@@ -532,17 +552,23 @@ section.project-demo {
         padding: 10px;
         h2 {
             position: relative;
-            color: $pte-red;
             font-size: bold;
             span { 
-                color: $pte-red;
                 opacity: 0.3;
                 text-transform: uppercase;
-                font-size: 2rem;
+                font-size: 2.5rem;
                 font-weight: bold;
-                @include absolute-position(2%,30%);
+                @include absolute-position(5%,45%);
                 // transform: translate(50%,-50%);
             }
+        }
+
+        .sub-heading {
+            margin: 20px 0;
+        }
+
+        ul li {
+            margin: 10px 0;
         }
 
         .row {
@@ -564,6 +590,8 @@ section.project-demo {
                     line-height: 100px;
                     margin: 10px;
                     font-weight: bold;
+                    font-family: 'Amatic SC', cursive;
+                    font-size: 1.2rem;
                 }
                 
             }
@@ -583,7 +611,9 @@ section.project-demo {
         }
 
         div:nth-child(1) {
+            margin-top: 5px;
             font-size: 1.25rem;
+            font-family: 'Shadows Into Light', cursive;
         }
 
         div.publish-date {
@@ -593,6 +623,10 @@ section.project-demo {
             color: $dark;
             font-size: 1.1rem;
             position: relative;
+        }
+
+        p {
+            font-style: italic;
         }
     }
 
@@ -749,10 +783,23 @@ section.contact {
     .form-buttons {
         display: flex;
         justify-content: space-between;
+        button {
+        }
     }
 
     .submit-btn {
         color: $pte-red;
         border-color: $pte-red;
     }
+
+    .cancel-btn:hover {
+        background-color: $dark;
+        
+    }
+
+    .submit-btn:hover {
+        color: white;
+        background-color: $pte-red;
+    }
+    
 }

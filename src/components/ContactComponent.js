@@ -62,8 +62,8 @@ function RenderForm({submitHandler,toggleModal}) {
 
             <Row className="form-group">
                 <Col md={12} className="form-buttons">
-                    <button className="button cancle-btn" onClick={toggleModal}><span></span>
-                        Cancle
+                    <button className="button cancel-btn" onClick={toggleModal}><span></span>
+                        Cancel
                     </button>
                     <button type="submit" className="button submit-btn" onClick={submitHandler}><span></span>
                         Send Message
