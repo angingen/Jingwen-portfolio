@@ -1,16 +1,6 @@
 
 $dk-red: #C24332;
 
-@-webkit-keyframes button-hover {
-    from {width: 0}
-    to {width: 100%}
-}
-
-@keyframes button-hover {
-    from {width: 0}
-    to {width: 100%}
-}
-
 @-webkit-keyframes loading{
     0% {left:-40px; top:0;}
     50% {left:100%; top:0;}
@@ -96,7 +86,7 @@ $dk-red: #C24332;
     100% {width: 0}
 }
 
-@keyframes reveal reveal {
+@keyframes reveal {
     0% {width: 0%}
     50% {width: 100%}
     75% {width: 100%}

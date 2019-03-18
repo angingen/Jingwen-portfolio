@@ -1,0 +1,88 @@
+@mixin absolute-position($left,$right) {
+    position: absolute;
+    left: $left;
+    top: $right;
+}
+
+section.about {
+    flex-direction: column;
+    position: relative;
+    .container {
+        height: 100%;
+        flex: 1 0 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .general-info-container, .education-info-container {
+        padding: 20px;
+        min-height: 500px;
+        box-shadow: 3px 3px 0px $lt-grey;
+        display: flex;
+        flex-direction: column;
+        outline-offset: -5px;
+        .space-filler {
+            flex: 1 0 auto;
+        }
+    }
+
+    .general-info-container {
+        background-color: snow;
+        padding-bottom: 5px; 
+        outline: 1px solid $dark;
+        .title {
+            flex: 0 0 auto;
+            align-self: baseline;
+            position: relative;
+            span { 
+                color: $pl-dark;
+                opacity: 0.3;
+                text-transform: uppercase;
+                font-size: 3.5rem;
+                font-weight: bold;
+                @include absolute-position(0,0);
+                transform: translate(50%,-30%);
+            }
+        }
+    }
+    .education-info-container {
+        background-color: $pl-dark;
+        color: white;
+        outline: 1px solid snow;
+        .title {
+            flex: 0 0 auto;
+            align-self: flex-start;
+            position: relative;
+            width: 100%;
+            text-align: end;
+            span { 
+                color: white;
+                opacity: 0.1;
+                text-transform: uppercase;
+                font-size: 3.5rem;
+                font-weight: bold;
+                @include absolute-position(0,0);
+                transform: translate(0,-20%);
+            }
+        }
+    }
+
+    ul{
+        li {
+            margin-top: 20px;
+            p {
+                font-weight: bold;
+                margin-bottom: 3px;
+                span {
+                    font-size: 0.9rem;
+                    font-weight: 100;
+            }
+        }
+        }
+        li > span {
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@mixin button($bg-color, $tx-color) {
+    background-color: $bg-color;
+    color: $tx-color;
+}
+
+.badge {
+    margin-right: 2px;
+}
+
+.badge-JavaScript {
+    @include button($js-y, black);
+}
+
+.badge-Bootstrap {
+    @include button($bootstrap-p, $bootstrap-y);
+}
+
+.badge-Gulp {
+    @include button($gulp-r, white);
+}
+
+.badge-React {
+    @include button($react-bk, $react-bl);
+}
+
+.badge-Redux {
+    @include button($redux-p, white);
+}
+
+.badge-Node {
+    @include button($node-bk, $node-gr)
+}

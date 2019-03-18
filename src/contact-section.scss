@@ -1,0 +1,51 @@
+section.contact {
+    .container, .row {
+        height: 100%;
+    } 
+    .mailbox-img {
+        align-self: center;
+        .base-img{
+            width: 100%;
+            position: relative;
+        }
+        .base-img-eye-right{
+            width: 5%;
+            position: absolute;
+            top:18%;
+            right:50%;
+            background-color: transparent;
+        }
+
+        .base-img-eye-left{
+            width: 5%;
+            position: absolute;
+            top:18%;
+            left:52%;
+            background-color: transparent;
+        }
+    }
+
+    .form-text{
+        align-self: center;
+    }
+    
+    .form-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .submit-btn {
+        color: $pte-red;
+        border-color: $pte-red;
+    }
+
+    .cancel-btn:hover {
+        background-color: $dark;
+        
+    }
+
+    .submit-btn:hover {
+        color: white;
+        background-color: $pte-red;
+    }    
+}

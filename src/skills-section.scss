@@ -1,0 +1,69 @@
+@mixin animation($name,$duration,$delay,$interation,$fill) {
+    -webkit-animation-name: $name;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-iteration-count: $interation;
+    -webkit-animation-fill-mode: $fill;
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-iteration-count: $interation;
+    animation-fill-mode: $fill;
+}
+
+section.skills {
+    flex-direction: column;
+    position: relative;
+    .container {
+        height: 100%;
+        flex: 1 0 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    } 
+    background-color: white;
+
+    .css, .tools {
+        padding: 10px 10px 20px 10px;
+        background-color: snow;
+        outline: 1px solid $pl-dark;
+        outline-offset: -5px;
+    }
+
+    .html, .js {
+        padding: 10px 10px 20px 10px;
+        background-color: $pl-dark;
+        color: snow;
+
+        outline: 1px solid snow;
+        outline-offset: -5px;
+    }
+
+    .html:hover, .css:hover, .js:hover, .tools:hover{
+        
+        cursor: pointer;
+        .skills-icon span{
+            @include animation(skill-hover,1s,0s,infinite,forwards);
+        }
+    }
+
+    .skills-icon {
+        min-height: 50px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+
+        span {
+            background-color: transparent;
+        }
+    }
+
+    .skills-text {
+        min-height: 200px;
+        span.keyword {
+            font-weight: bold;
+        }
+    }
+}

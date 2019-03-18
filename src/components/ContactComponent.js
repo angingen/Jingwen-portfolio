@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Row, Col, Label, Button } from "reactstrap";
+import { Row, Col, Label } from "reactstrap";
 import { Control, Form, Errors } from 'react-redux-form';
-import { toggleModal } from '../redux/ActionCreator';
-
-// const required = (val) => val && val.length;
-// const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
 const required = (val) => val && val.length;
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val)
@@ -13,7 +8,7 @@ const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val
 
 function RenderForm({submitHandler,toggleModal}) {
     return (
-        <Form model="contactForm" onSubmit={submitHandler}>
+        <Form model="contactForm" onSubmit={(values) => submitHandler(values)}>
             <Row className="form-group">
                 <Label htmlFor="name" md={12}>Name *</Label>
                 <Col md={12}>
@@ -90,8 +85,10 @@ export default class Contact extends Component {
         this.submitHandler = this.submitHandler.bind(this);
     }
 
-    submitHandler() {
-        console.log('*******!');
+    submitHandler(values) {
+        this.props.sendMessage(values);
+        this.props.resetContactForm();
+        this.props.toggleModal();
     }
 
     handelMouseMove(event) {
@@ -130,12 +127,12 @@ export default class Contact extends Component {
             <section className="contact" id="contact-section" onMouseMove={(event) => this.handelMouseMove(event)}>
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 col-md-5 welcome-img">
+                        <div className="col-12 col-md-5 mailbox-img">
                             <img className="base-img" src="/assets/images/mail.svg" alt="avatar with mailbox" ></img>
                             <img className="base-img-eye-right" id="rightEye" ref={this.rightEye} src="/assets/images/eye.svg" alt="right-eye" style={{transform:`rotate(${this.state.eyePositionR}deg)`}}></img>
                             <img className="base-img-eye-left" id="leftEye" ref={this.leftEye} src="/assets/images/eye.svg" alt="left-eye" style={{transform:`rotate(${this.state.eyePositionL}deg)`}}></img>
                         </div>
-                        <div className="col-12 col-md-7 welcome-text">
+                        <div className="col-12 col-md-7 form-text">
                             <RenderForm submitHandler={this.submitHandler} toggleModal={this.props.toggleModal}/>
                         </div>
                     </div>
