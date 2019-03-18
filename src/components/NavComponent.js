@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem } from 'reactstrap';
 
 export default class NavSide extends Component {
     constructor(props) {
@@ -15,11 +15,22 @@ export default class NavSide extends Component {
     }
 
     onScroll() {
-        var heightTop = document.documentElement.scrollTop || document.body.scrollTop;
-        if (heightTop > 60 && !this.state.showNavUp) {
-            this.setState({showNavUp:true})
-        } else if (heightTop <= 60 && this.state.showNavUp) {
-            this.setState({showNavUp:false})
+        var body = document.body,
+            html = document.documentElement,
+            heightTop = html.scrollTop || body.scrollTop,
+            pageHeight =  Math.max( body.scrollHeight, body.offsetHeight, 
+                html.clientHeight, html.scrollHeight, html.offsetHeight ),
+            viewportHeight = Math.max(html.clientHeight, window.innerHeight || 0);
+        if (pageHeight - viewportHeight > 100) {
+            if (heightTop > 60 && !this.state.showNavUp) {
+                this.setState({showNavUp:true})
+            } else if (heightTop <= 60 && this.state.showNavUp) {
+                this.setState({showNavUp:false})
+            }
+        } else {
+            if (heightTop <= 60 && this.state.showNavUp) {
+                this.setState({showNavUp:false})
+            }
         }
     }
 
