@@ -47,7 +47,9 @@ class ProjectPic extends Component {
             <CarouselItem onExiting={this.onExiting}
               onExited={this.onExited}
               key={item.src}>
-              <img src={item.src} alt={item.altText} />
+              <div className="img-container">
+                <img src={item.src} alt={item.altText} />
+              </div>
               <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
             </CarouselItem>
           );
@@ -126,17 +128,17 @@ function RenderProject ({project, isLoading, errMess}) {
                                 
                             </div>
                             <div className="col-12 col-md-8 order-2 order-md-1">
-                                {project.intro}
+                                <p>{project.intro}</p>
                             </div>
                             <div className="col-12 order-3 breaker"></div>
                             <div className="col-12 order-4 sub-heading" style={{color: project.themeColor.title}}>
                                 <h2>Project Features<span>Features</span></h2>
                                 
                             </div>
-                            <div className="col-12 col-md-6 order-5">
+                            <div className="col-12 col-lg-6 order-5">
                                 <ProjectPic items={items}/>
                             </div>
-                            <div className="col-12 col-md-6 order-6 align-center">
+                            <div className="col-12 col-lg-6 order-6 align-center">
                                 <ul><RenderFeatures features={project.features}/></ul>
                             </div>
                         </div>
@@ -175,10 +177,6 @@ function RenderProject ({project, isLoading, errMess}) {
 }
 
 export default class ProjectDemo extends Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     componentWillUnmount() {
         window.scroll({top:0, left:0, behavior: 'smooth'});
