@@ -1,21 +1,114 @@
+@mixin welcome--xs() {
+    .welcome-img{
+        display: none;
+    }
+}
+
+@mixin welcome--sm() {
+    .welcome-img{
+        margin-top: 20px;
+    }
+}
+
+@mixin welcome--lg() {
+    section.welcome {
+        h1 {
+           font-size:  3rem;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+    }
+}
+
+@mixin skills--xs--sm {
+    section.skills {
+        .skills-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}
+
+
+@mixin projects--xs--sm() {
+    section.projects {
+        .button {
+            padding: 5px;
+            height: 30px;
+            line-height: 20px;
+            vertical-align: center;
+            font-size: 0.8rem;
+        }
+    }
+}
+
+@mixin project-demo-xs-sm() {
+    section.project-demo {
+        .section-title-container {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+        }
+        .sub-heading {
+            display: flex;
+            justify-content: flex-start;
+        }
+        h2 {
+            width:100%;
+            text-align: start;
+            span {
+                display: none;
+            }
+        }
+
+        .c2r-contianer {
+            .color-container {
+                div.color {
+                    height: 80px;
+                    width: 80px;
+                    text-align: center;
+                    line-height: 80px;
+                    margin: 10px;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
 // extra small devices || mobile devices
 @media (max-width:575px) {
-
+    @include welcome--xs();
+    @include skills--xs--sm();
+    @include project-demo-xs-sm();
+    @include projects--xs--sm();
 }
 
 //  small devices || tablet
 @media (min-width:576px) and (max-width:767px) {
-
+    @include welcome--sm();
+    @include skills--xs--sm();
+    @include project-demo-xs-sm();
+    @include projects--xs--sm();
 
 }
 
 // medium devices 
 @media (min-width:768px) and (max-width: 991px) {
-
-
 }
 
 // large devices
 @media (min-width: 992px) {
-    
+    @include welcome--lg();
 }

@@ -1,4 +1,4 @@
-section.welcome, section.contact {
+section.welcome {
     .container, .row {
         height: 100%;
     } 
@@ -43,7 +43,7 @@ section.welcome, section.contact {
         }
     }
 
-    .welcome-text{
+    .welcome-text {
         align-self: center;
     }
 }

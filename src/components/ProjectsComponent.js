@@ -9,7 +9,7 @@ function RenderProject({projects}) {
             <Badge color={keyword} key={index} >{keyword}</Badge>
         );
         return(
-            <div className={index%2 === 0? "offset-md-1 col-11 project-container": "col-11 project-container" } key={index}>
+            <div className={index%2 === 0? "offset-lg-1 col-lg-11 col-12 project-container": "col-lg-11 col-12  project-container" } key={index}>
                 <div className="col-12 col-lg-8 order-1 order-lg-0 align-center">
                     <div className="project-img-container mb-3">
                         <div className="img-bg"></div>

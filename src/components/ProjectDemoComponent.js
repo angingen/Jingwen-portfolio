@@ -165,9 +165,9 @@ function RenderProject ({project, isLoading, errMess}) {
                 <div className="section-footer">
                     <div className="container">
                         <div className="row">
-                            <div className="footer-link"><a href={project.repo} target="_blank" rel="noopener noreferrer">Show me the code!</a></div>
-                            <div className="footer-link"><a href={project.page} target="_blank" rel="noopener noreferrer">View website</a></div>
-                            <div className="footer-link"><Link to="/projects">Back to project list</Link></div>
+                            <div className="footer-link"><a href={project.repo} target="_blank" rel="noopener noreferrer" title="View codes on the GitHub repository">GitHub</a></div>
+                            <div className="footer-link"><a href={project.page} target="_blank" rel="noopener noreferrer" title="Go to this project's website">Website</a></div>
+                            <div className="footer-link"><Link to="/projects">Projects</Link></div>
                         </div>
                     </div>
                 </div>
