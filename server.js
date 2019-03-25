@@ -4,6 +4,7 @@ const app = express();
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
+const nodemailer = require("nodemailer");
 
 // adding a router
 const router = express.Router();
@@ -64,6 +65,43 @@ router.get('/projects',(req,res) => {
     console.log('read file in ',filename);
 });
 
+//configure mailer
+async function handleEmail(req,res){
+  
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: 'angingenPortfolioMSG@gmail.com', // generated ethereal user
+        pass: 'angingenMSG' // generated ethereal password
+      }
+    });
+
+    var obj = req.body;
+    // setup email data with unicode symbols
+    let mailOptions = {
+      from: 'angingenPortfolioMSG@gmail.com', // sender address
+      to: 'jingwenwangw2@gmail.com', // list of receivers
+      subject: 'Portfolio Site Message', // Subject line
+      text: obj.name + '\n' + obj.email + '\n' + obj.message, // plain text body
+    };
+  
+    // send mail with defined transport object
+    await transporter.sendMail(mailOptions,function(err,info) {
+        if (err) {
+            console.log(err);
+            res.json({errMess: 'error'});
+        } else {
+            console.log("Message sent.");
+            res.json({yo: info.response});
+        }
+    });
+}
+
+
+router.post('/message',handleEmail);
 
 
 app.listen(port, () => console.log('Listening on port',port));

@@ -41,3 +41,32 @@ export const fetchProjects = () => (dispatch) => {
 export const toggleModal = () => (dispatch) => dispatch({
     type: ActionTypes.TOGGLE
 });
+
+export const sendMessage = (message) => (dispatch) => {
+    // const newMessage = {...message};
+    // newMessage.date = new Date().toISOString();
+    return fetch(baseURL + 'message', {
+        method: 'POST',
+        body: JSON.stringify(message),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+    })
+        .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+        })
+        .then(response => response.json())
+        .then(() => alert('Thank you for contact me. I will get back to you as soon as possible.'))
+        .catch(error => alert('Sorry, your message failed to be sent: ' + error))
+}
