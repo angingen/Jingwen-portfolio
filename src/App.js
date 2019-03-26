@@ -8,24 +8,12 @@ import Main from './components/MainComponent';
 const store = ConfigureStore();
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      isLoading: true
-    }
-  }
-
-  componentDidMount() {
-    this.setState({isLoading: false});
-  }
 
   render() {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <div className={this.state.isLoading? 'App':'App loaded'}>
             <Main />
-          </div>
         </BrowserRouter>
       </Provider>
     );

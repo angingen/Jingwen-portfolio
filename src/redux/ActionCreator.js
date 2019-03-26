@@ -42,6 +42,15 @@ export const toggleModal = () => (dispatch) => dispatch({
     type: ActionTypes.TOGGLE
 });
 
+export const componentLoaded = () => (dispatch) => dispatch({
+    type: ActionTypes.LOADED
+});
+
+export const componentUnmount = () => (dispatch) => dispatch({
+    type: ActionTypes.UNMOUNT
+});
+
+
 export const sendMessage = (message) => (dispatch) => {
     // const newMessage = {...message};
     // newMessage.date = new Date().toISOString();

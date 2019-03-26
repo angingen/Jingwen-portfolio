@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { Projects } from './projects';
 import { InitialContactForm } from './contactForm';
-import { Modal } from './components';
+import { Modal, Loaded } from './components';
 
 
 export const ConfigureStore = () => {
@@ -12,6 +12,7 @@ export const ConfigureStore = () => {
         combineReducers({
             projects: Projects,
             modalIsOpen: Modal,
+            loaded: Loaded,
             ...createForms({
                 contactForm: InitialContactForm
             })

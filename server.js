@@ -13,7 +13,7 @@ const port =  process.env.PORT || 8080;
 app.use(express.static(path.join(__dirname, '/build')));
 
 // identification of allowed origins in CORS
-const originWhitelist = ['https://randomtodolistgenerator.herokuapp.com/','http://localhost:3000'];
+const originWhitelist = ['https://randomtodolistgenerator.herokuapp.com/','http://localhost:3000','http://192.168.0.18:3000'];
 
 // middleware route that all requests pass through
 router.use((request, response, next) => {
