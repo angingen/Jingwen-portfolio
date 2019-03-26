@@ -28,10 +28,13 @@ section.contact {
     .form-text{
         align-self: center;
     }
-    
+
     .form-buttons {
         display: flex;
         justify-content: space-between;
+        button {
+            background-color: white;
+        }
     }
 
     .submit-btn {
