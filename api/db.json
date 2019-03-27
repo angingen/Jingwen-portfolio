@@ -4,12 +4,12 @@
       "title": "Online PTE Timer",
       "themeColor": {"title":"#C24332", "publish":"#f0d3d4"},
       "keywords": ["JavaScript","Bootstrap","Gulp"],
-      "description": "An online timer for the PTE exam test-takers to use during practicing the speaking section.",
+      "description": "An online timer for the PTE exam test-takers to use while practicing the speaking section.",
       "demo": "/projects/online-pte-timer",
       "repo": "https://github.com/angingen/online-pte-timer",
       "page": "https://angingen.github.io/online-pte-timer/",
       "poster": {
-        "screenshot":"images/online-pte-timer-1.png",
+        "screenshot":"images/pte-poster.png",
         "screenshotAlt":"online pte timer screenshot",
         "mockup":"images/online-pte-timer-2.png",
         "mockupAlt":"online pte timer UI mockup"
@@ -42,7 +42,7 @@
         "repo": "https://github.com/angingen/random-todo-list-generator",
         "page": "https://randomtodolistgenerator.herokuapp.com/",
         "poster": {
-          "screenshot":"images/RtdLG-1.png",
+          "screenshot":"images/random-poster.png",
           "screenshotAlt":"Random to-do list generator screenshot",
           "mockup":"images/RtdLG-2.png",
           "mockupAlt":"Random to-do list generator UI mockup"
@@ -59,8 +59,9 @@
           "A to-do list generator which selects the task based on the users preference and available time of the week.",
           "A task library with filters to show different categories of tasks.",
           "A task proposal form for users to propose their own tasks but will be evaluated by myself before adding to the library. ",
-          "(server-side) A RESTful API offers tasks informations and stores user proposed tasks."],
-        "realization": ["Random to-do list generator is a single page application created using React.js. React Redux Form is used to create the task proposal form, tasks preference form and the to-do list customization form. The states of forms and tasks information are managed by a Redux store connected to my React components. Moreover, a simple RESTful API is built with Node.js Express. It serves up the tasks information and allows the client-side to fetching tasks information and posting task proposals. "],        
+          "(server-side) A RESTful API offers tasks information and stores user proposed tasks."],
+        "realization": ["Random to-do list generator is a single page application created using React.js. React Redux Form is used to create the task proposal form, tasks preference form and the to-do list customization form. The states of forms and tasks information are managed by a Redux store connected to my React components. Moreover, a simple RESTful API is built with Node.js Express. It serves up the tasks information and allows the client-side to fetching tasks information and posting task proposals. ",
+          "I really enjoyed this experience of developing a React application. I like writing JSX and work with React.js. Taking the task library for example, using the map method can easily iterate through all the tasks data and render each of them in just few line of codes. "],        
         "colorScheme": ["#FEFAD4","#8FB9A8","#FCD0BA","#F1828D","#765D69"],
         "colorSchemeText": "black",
         "colorSchemeExp": "“The goal of this project is to add a bit freshness to the daily routine by including some small random challenges. Therefore, the color combination picked for this web application is generally bright and soft, which brings a relaxed feeling.”"
