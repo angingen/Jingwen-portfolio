@@ -31,7 +31,6 @@
     }
 }
 
-
 @mixin projects--xs--sm() {
     section.projects {
         .button {
@@ -50,7 +49,6 @@
             h1 {
                 font-size: 2rem;
             }
-
             p {
                 font-size: 0.9rem;
             }
@@ -82,6 +80,29 @@
     }
 }
 
+@mixin header-xs-sm() {
+    header {
+        li.contact-btn-sm {
+            position: relative;
+            margin-right: auto;
+            button.btn-warning {
+                width: 50px;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                transform: translate(0,-20%);
+            }
+            button.btn-warning:hover {
+                top: 2px;
+            }
+        }
+
+        a.active::after {
+            display: none;
+        }
+    }
+}
+
 
 
 
@@ -93,6 +114,8 @@
     @include skills--xs--sm();
     @include project-demo-xs-sm();
     @include projects--xs--sm();
+    @include header-xs-sm();
+
 }
 
 //  small devices || tablet
@@ -101,6 +124,7 @@
     @include skills--xs--sm();
     @include project-demo-xs-sm();
     @include projects--xs--sm();
+    @include header-xs-sm();
 
 }
 
