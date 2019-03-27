@@ -28,7 +28,7 @@ class Header extends Component {
           <Navbar color="dark" dark expand="md">
             <div className="container">
             <Link className="navbar-brand" to="/home"><strong>Jing</strong></Link>
-            <Button color="warning" onClick={this.props.toggleModal} className="d-inline d-md-none mr-auto"><span className="fas fa-mail-bulk"></span></Button>
+            <NavItem className="contact-btn-sm"><Button color="warning" onClick={this.props.toggleModal} className="d-inline d-md-none mr-auto"><span className="fas fa-mail-bulk"></span></Button></NavItem>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
@@ -48,7 +48,7 @@ class Header extends Component {
                     <NavLink className="nav-link" to='/skills' activeClassName="active">Skills</NavLink>
                     <span></span>
                 </NavItem>
-                <NavItem>
+                <NavItem className="contact-btn">
                     <Button color="warning" onClick={this.props.toggleModal} className="d-none d-md-inline"><span></span>Contact</Button>
                 </NavItem>
               </Nav>
