@@ -13,18 +13,18 @@ const port =  process.env.PORT || 8080;
 app.use(express.static(path.join(__dirname, '/build')));
 
 // identification of allowed origins in CORS
-const originWhitelist = ['https://randomtodolistgenerator.herokuapp.com/','http://localhost:3000','http://192.168.0.18:3000'];
+// const originWhitelist = ['https://jingwen-portfolio.herokuapp.com','http://jingwen-portfolio.herokuapp.com','http://www.jingwenw.com'];
 
 // middleware route that all requests pass through
 router.use((request, response, next) => {
   console.log('Server info: Request received');
   
-  let origin = request.headers.origin;
+  // let origin = request.headers.origin;
   
-  // only allow requests from origins that we trust
-  if (originWhitelist.indexOf(origin) > -1) {
-    response.setHeader('Access-Control-Allow-Origin', origin);
-  }
+  // allow access to all origin
+  // if (originWhitelist.indexOf(origin) > -1) {
+  response.setHeader('Access-Control-Allow-Origin', '*');
+  // }
   
   // only allow get requests, separate methods by comma e.g. 'GET, POST'
   response.setHeader('Access-Control-Allow-Methods', 'GET','POST');
@@ -49,7 +49,8 @@ router.use(myParser.json());
 
 // react router solution
 app.get('*', function (request, response){
-    response.sendFile(path.resolve(__dirname, 'build', 'index.html'))
+    const index = path.join(__dirname, 'build', 'index.html');
+    response.sendFile(index);
 });
 
 
