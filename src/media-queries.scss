@@ -58,7 +58,7 @@
 
 @mixin projects--sm() {
     section.projects {
-        div.project-container div.project-img-container {
+        div.project-container div.project-img-container,img {
             min-height: 274px;
         }
         .button {
@@ -73,7 +73,7 @@
 
 @mixin projects--md() {
     section.projects {
-        div.project-container div.project-img-container {
+        div.project-container div.project-img-container,img {
             min-height: 377px;
         }
     }
@@ -81,7 +81,7 @@
 
 @mixin projects--lg() {
     section.projects {
-        .project-container div.project-img-container {
+        .project-container div.project-img-container,img {
             min-height: 300px;
         }
     }

@@ -3,6 +3,7 @@ section.welcome {
         height: 100%;
     } 
     h1 {
+        @include animation(occur,0.5s,0,1,backwards);
         text-transform: none;
         text-align: left;
         rt {
@@ -11,6 +12,7 @@ section.welcome {
     }
 
     h2 {
+        @include animation(show-scale-y,0.5s,0.5s,1,backwards);
         font-size: 1.5rem;
         font-style: italic;
         font-weight: 100;
@@ -21,6 +23,7 @@ section.welcome {
     }
 
     .welcome-img {
+        @include animation(occur,1.5s,0.5s,1,backwards);
         align-self: center;
         .base-img{
             width: 100%;
@@ -45,5 +48,11 @@ section.welcome {
 
     .welcome-text {
         align-self: center;
+        position: relative;
+        margin-bottom: 60px;
+        .button-group {
+            position: absolute;
+            @include animation(horizontal-move-left,0.5s,1s,1,backwards);
+        }
     }
 }

@@ -116,6 +116,7 @@ function RenderProject ({project, isLoading, errMess}) {
                     <h1>{project.title}</h1>
                     <p>{project.description}</p>
                     <div className="publish-date"style={{backgroundColor: project.themeColor.publish}}>{"Publish: "+ project.publish}</div>
+                    <span className="mask"></span>
                 </div>
                 <article>
                     <div className="container">

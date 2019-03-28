@@ -82,17 +82,13 @@ $dk-red: #C24332;
 }
 
 @-webkit-keyframes reveal {
-    0% {width: 0%}
-    50% {width: 100%}
-    75% {width: 100%}
-    100% {width: 0}
+    from {width: 100%}
+    to {width: 0%}
 }
 
 @keyframes reveal {
-    0% {width: 0%}
-    50% {width: 100%}
-    75% {width: 100%}
-    100% {width: 0}
+    from {width: 100%}
+    to {width: 0%}
 }
 
 @-webkit-keyframes img-up {
@@ -155,5 +151,32 @@ $dk-red: #C24332;
     to {opacity: 1; transform: scale(1)}
 }
 
+@-webkit-keyframes show-scale-y {
+    from {opacity: 0; transform: scaleY(0.1)}
+    to {opacity: 1; transform: scaleY(1)}
+}
 
+@keyframes show-scale-y {
+    from {opacity: 0; transform: scaleY(0.1)}
+    to {opacity: 1; transform: scaleY(1)}
+}
 
+@-webkit-keyframes drop-down {
+    from {transform: translate(0, -100%)}
+    to {transform: translate(0, 0)}
+}
+
+@keyframes drop-down {
+    from {transform: translate(0, -100%)}
+    to {transform: translate(0, 0)}
+}
+
+@-webkit-keyframes horizontal-move-left{
+    from {opacity: 0; transform: translateX(-100%)}
+    to {opacity: 1; transform: translateX(0)}
+}
+
+@keyframes horizontal-move-left {
+    from {opacity: 0; transform: translateX(-100%)}
+    to {opacity: 1; transform: translateX(0)}
+}

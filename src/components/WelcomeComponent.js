@@ -67,7 +67,7 @@ export default class Welcome extends Component {
                             <h2>
                                 Looking for a <span className="highlight"><span></span>Front-end Web Developer</span>?
                             </h2>
-                            <div>
+                            <div className="button-group"> 
                                 <Link to="/about" className="about-btn button" onClick={this.props.scrollToTop}><span></span>About me</Link>
                                 <Link to="/projects" className="project-btn button" onClick={this.props.scrollToTop}><span></span>My projects</Link>
                             </div>

@@ -4,12 +4,22 @@
     top: $right;
 }
 
+@mixin animation($name,$duration,$delay,$interation,$fill) {
+    -webkit-animation-name: $name;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-iteration-count: $interation;
+    -webkit-animation-fill-mode: $fill;
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-iteration-count: $interation;
+    animation-fill-mode: $fill;
+}
+
 // shared style
 section.projects, section.project-demo {
     // place holder for broken img link
-    img {
-        min-height: 150px;
-    }
 
     img:before { 
         content: " ";
@@ -70,7 +80,6 @@ section.projects {
         margin-top: 30px;
         margin-bottom: 20px;
         .project-img-container {
-            min-height: 150px;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -107,6 +116,7 @@ section.project-demo {
     flex-direction: column;
     position: relative;
     article {
+        @include animation(occur,0.5s,1.5s,1,backwards);
         padding: 10px;
         h2 {
             position: relative;
@@ -156,9 +166,23 @@ section.project-demo {
             }
         }
     }
+
     .section-title-container{
         width: 100%;
         background-color: $pte-red;
+        position: relative;
+        margin-bottom: 36px;
+        span.mask {
+            position: absolute;
+            background-color: white;
+            height: 141px;
+            z-index: 1;
+            top: 0;
+            @include animation(reveal,0.5s,0s,1,backwards);
+        }
+        h1 {
+            @include animation(show-scale-y,0.5s,0.5s,1,backwards);
+        }
         * {
             text-align: center;
             color: white;
@@ -169,19 +193,24 @@ section.project-demo {
             margin-top: 5px;
             font-size: 1.25rem;
             font-family: 'Shadows Into Light', cursive;
+            @include animation(show-scale-y,0.5s,0.5s,1,backwards);
         }
 
         div.publish-date {
             padding: 5px;
             background-color: wheat;
-            z-index: 1;
+            z-index: -1;
             color: $dark;
             font-size: 1.1rem;
-            position: relative;
+            position: absolute;
+            width: 100%;
+            @include animation(drop-down,0.5s,1s,1,backwards);
+
         }
 
         p {
             font-style: italic;
+            @include animation(occur,0.5s,0.5s,1,backwards);
         }
     }
 
