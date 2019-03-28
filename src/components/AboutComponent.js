@@ -39,7 +39,7 @@ export default class About extends Component {
                 <div className="container">
                     <div className="row d-flex align-items-stretch">
                         <div className="col-12 col-md-6 general-info-container">
-                            <div className="text order-1 order-md-0">
+                            <div className="text order-1 order-md-0"> 
                                 <p>Hi, nice to meet you. I am Jingwen Wang, a self-taught front-end web developer.</p>
                                 <p>I graduated from the University of Melbourne with a master degree of Mechanical Engineering in 2018. I soon discovered my interest in web development when I was experimenting on web scrapping. </p>
                                 <p>Therefore, I invested my time on doing online courses and practicing what I learned by working on small projects. Now, I truly enjoy web development. It always gives me the same vibe of writing an essay using LaTex - it is elegant and fun!</p>

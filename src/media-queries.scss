@@ -1,3 +1,16 @@
+@mixin animation($name,$duration,$delay,$interation,$fill) {
+    -webkit-animation-name: $name;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-iteration-count: $interation;
+    -webkit-animation-fill-mode: $fill;
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-iteration-count: $interation;
+    animation-fill-mode: $fill;
+}
+
 @mixin welcome--xs() {
     .welcome-img{
         display: none;
@@ -43,7 +56,7 @@
     }
 }
 
-@mixin project-demo-xs-sm() {
+@mixin project--demo--xs--sm() {
     section.project-demo {
         .section-title-container {
             h1 {
@@ -80,7 +93,7 @@
     }
 }
 
-@mixin header-xs-sm() {
+@mixin header--xs--sm() {
     header {
         li.contact-btn-sm {
             position: relative;
@@ -104,17 +117,44 @@
 }
 
 
+@mixin about--md--lg() {
+    section.about {
+        div.row {
+            position: relative;
+            .general-info-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translateY(-50%);
+                @include animation(slide-right,1s,0.5s,1,backwards);
+                
+            }
+            .education-info-container {
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translateY(-50%);
+                @include animation(slide-left,1s,0.5s,1,backwards);
+            }
+        }
+    }
+}
 
-
-
+@mixin about--md() {
+    section.about {
+        .general-info-container,.education-info-container  {
+            height: 550px;
+        }
+    }
+}
 
 // extra small devices || mobile devices
 @media (max-width:575px) {
     @include welcome--xs();
     @include skills--xs--sm();
-    @include project-demo-xs-sm();
+    @include project--demo--xs--sm();
     @include projects--xs--sm();
-    @include header-xs-sm();
+    @include header--xs--sm();
 
 }
 
@@ -122,17 +162,20 @@
 @media (min-width:576px) and (max-width:767px) {
     @include welcome--sm();
     @include skills--xs--sm();
-    @include project-demo-xs-sm();
+    @include project--demo--xs--sm();
     @include projects--xs--sm();
-    @include header-xs-sm();
+    @include header--xs--sm();
 
 }
 
 // medium devices 
 @media (min-width:768px) and (max-width: 991px) {
+    @include about--md--lg();
+    @include about--md();
 }
 
 // large devices
 @media (min-width: 992px) {
     @include welcome--lg();
+    @include about--md--lg();
 }

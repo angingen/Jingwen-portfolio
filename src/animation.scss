@@ -37,14 +37,16 @@ $dk-red: #C24332;
     100% {left: 0; top: -160vh; visibility: hidden;}
 }
 
-@keyframes message-occur {
-    from {position:absolute; opacity: 0;}
-    to {position:relative; opacity: 1;}
+@-webkit-keyframes slide-down {
+    0% {left: 0; top: -160vh; visibility: hidden;}
+    50% {left: 0; top: -80vh; position: absolute; visibility: visible}
+    100% {left: 0; top:0; position: absolute;}
 }
 
-@-webkit-keyframes message-occur {
-    from {position:absolute; opacity: 0;}
-    to {position:relative; opacity: 1;}
+@keyframes slide-down {
+    0% {left: 0; top: -160vh; visibility: hidden;}
+    50% {left: 0; top: -80vh; position: absolute; visibility: visible}
+    100% {left: 0; top:0; position: absolute;}
 }
 
 @keyframes occur {
@@ -93,22 +95,6 @@ $dk-red: #C24332;
     100% {width: 0}
 }
 
-@-webkit-keyframes switch {
-    0% {width: 0}
-    25% {width: 100%; background-color: $pl-dark;}
-    50% {width: 100%; background-color: $dk-red;}
-    75% {width: 100%; background-color: $dk-red;}
-    100% {width: 0; background-color: $dk-red;}
-}
-
-@keyframes switch {
-    0% {width: 0}
-    25% {width: 100%; background-color: $pl-dark;}
-    50% {width: 100%; background-color: $dk-red;}
-    75% {width: 100%; background-color: $dk-red;}
-    100% {width: 0; background-color: $dk-red;}
-}
-
 @-webkit-keyframes img-up {
     from {z-index:1;}
     to {z-index: -1}
@@ -118,3 +104,24 @@ $dk-red: #C24332;
     from {z-index:1;}
     to {z-index: -1}
 }
+
+@-webkit-keyframes slide-right {
+    from {opacity: 0; transform: translate(-100%, -50%)}
+    to {opacity: 1; transform: translate(0, -50%)}
+}
+
+@keyframes silde-right {
+    from {opacity: 0; transform: translate(-100%, -50%)}
+    to {opacity: 1; transform: translate(0, -50%)}
+}
+
+@-webkit-keyframes slide-left {
+    from {opacity: 0; transform: translate(100%, -50%)}
+    to {opacity: 1; transform: translate(0, -50%)}
+}
+
+@keyframes silde-left {
+    from {opacity: 0; transform: translate(100%, -50%)}
+    to {opacity: 1; transform: translate(0, -50%)}
+}
+

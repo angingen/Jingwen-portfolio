@@ -6,7 +6,6 @@
 
 section.about {
     flex-direction: column;
-    position: relative;
     .container {
         height: 100%;
         flex: 1 0 100%;
@@ -18,7 +17,7 @@ section.about {
     .general-info-container, .education-info-container {
         padding: 20px;
         min-height: 500px;
-        box-shadow: 3px 3px 0px $lt-grey;
+        box-shadow: 0 5px 2px 0 $lt-dark;
         display: flex;
         flex-direction: column;
         outline-offset: -5px;
@@ -42,7 +41,7 @@ section.about {
                 font-size: 3.5rem;
                 font-weight: bold;
                 @include absolute-position(0,0);
-                transform: translate(50%,-30%);
+                transform: translate(25%,-30%);
             }
         }
     }
