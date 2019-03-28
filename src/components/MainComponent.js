@@ -12,7 +12,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent'; 
 import ProjectDemo from './ProjectDemoComponent';
 
-import { fetchProjects, toggleModal, sendMessage, componentLoaded, componentUnmount } from '../redux/ActionCreator';
+import { fetchProjects, toggleModal, sendMessage, componentLoaded, componentUnmount} from '../redux/ActionCreator';
 
 const mapStateToProps = state => ({
     projects: state.projects,
@@ -27,7 +27,6 @@ const mapDispatchToProps = dispatch => ({
     resetContactForm: () => {dispatch(actions.reset('contactForm'))},
     componentLoaded: () => {dispatch(componentLoaded())},
     componentUnmount: () => {dispatch(componentUnmount())}
-
 })
 
 class Main extends Component {

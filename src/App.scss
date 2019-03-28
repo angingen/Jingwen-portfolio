@@ -53,6 +53,12 @@ html, body {
     font-family: 'Rokkitt', serif;
 }
 
+// put it in html will cause the scroll event listener stop working 
+// or use document.body.addEventListener()...
+body {
+    overflow-x: hidden;
+}
+
 .App {
     min-height: 100vh;
     display: flex;
@@ -91,6 +97,7 @@ section {
         align-self: flex-start;
         flex: 0 0 auto;
         text-align: center;
+        @include animation(show-scale-y,0.5s,0,1,backwards);
     }
 
 }
@@ -278,7 +285,7 @@ footer {
 }
 
 .hidden {
-    visibility: hidden;
+    display:none;
 }
 
 .modal-dialog {
