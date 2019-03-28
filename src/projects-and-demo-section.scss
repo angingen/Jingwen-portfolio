@@ -51,6 +51,14 @@ section.projects {
         flex-direction: column;
         justify-content: center;
     } 
+
+    div.project-container:nth-child(odd) {
+        @include animation(show-scale,1s,0.5s,1,backwards);
+    }
+    div.project-container:nth-child(even) {
+        @include animation(show-scale,1s,1s,1,backwards);
+    }
+
     .project-container{
         h2 {
             transition: font-weight 0.5s;
@@ -62,24 +70,26 @@ section.projects {
         margin-top: 30px;
         margin-bottom: 20px;
         .project-img-container {
-            min-height: 150px;  
-            background-color: $lt-dark;
+            min-height: 150px;
             display: flex;
             flex-direction: column;
             position: relative;
-            img,svg {
+            img {
                 width: 100%;
-                outline: 2px solid black;
             }
 
             .website-img {
                 position: absolute;
                 z-index: 1;
                 box-shadow:0 5px 2px 0 $lt-dark;
+                outline: 2px solid black;
             }
         }
 
     }
+
+
+
     .project-container:hover {
         img.website-img {
             box-shadow:0 10px 20px 0 $lt-dark;
@@ -106,7 +116,6 @@ section.project-demo {
                 font-size: 2.5rem;
                 font-weight: bold;
                 @include absolute-position(5%,45%);
-                // transform: translate(50%,-50%);
             }
         }
         .breaker {

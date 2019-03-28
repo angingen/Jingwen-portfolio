@@ -13,7 +13,7 @@ function RenderProject({projects}) {
                 <div className="col-12 col-lg-8 order-1 order-lg-0 align-center">
                     <div className="project-img-container mb-3">
                         <img src={baseURL+project.poster.screenshot} alt={project.poster.screenshotAlt} className="website-img"></img>
-                        <img src="/assets/images/placeholder-img.png" alt="place holder" className="mockup-img"></img>
+                        <img src="/assets/images/placeholder-img.png" alt="place holder" className="holder-img"></img>
                     </div>
                 </div>
                 <div className="col-12 col-lg-4 order-0 order-lg-1 project-info">
