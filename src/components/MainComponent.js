@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
-import { actions } from 'react-redux-form';
 import Welcome from './WelcomeComponent';
 import About from './AboutComponent';
 import Skills from './SkillsComponent';
@@ -12,19 +11,15 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent'; 
 import ProjectDemo from './ProjectDemoComponent';
 
-import { fetchProjects, toggleModal, sendMessage, componentLoaded, componentUnmount} from '../redux/ActionCreator';
+import { fetchProjects, componentLoaded, componentUnmount} from '../redux/ActionCreator';
 
 const mapStateToProps = state => ({
     projects: state.projects,
     loaded: state.loaded,
-    modalIsOpen: state.modalIsOpen
 });
 
 const mapDispatchToProps = dispatch => ({
     fetchProjects: () => {dispatch(fetchProjects())},
-    toggleModal: () => {dispatch(toggleModal())},
-    sendMessage: (message) => {dispatch(sendMessage(message))},
-    resetContactForm: () => {dispatch(actions.reset('contactForm'))},
     componentLoaded: () => {dispatch(componentLoaded())},
     componentUnmount: () => {dispatch(componentUnmount())}
 })
@@ -57,7 +52,7 @@ class Main extends Component {
         
         return (
             <div className={this.props.loaded? "App loaded" : "App"}>
-                <Header modalIsOpen={this.props.modalIsOpen} toggleModal={this.props.toggleModal} resetContactForm={this.props.resetContactForm} sendMessage={this.props.sendMessage}/>
+                <Header />
                 <Loading />
                 <Switch>
                     <Route exact path="/home" component={ ()=> 

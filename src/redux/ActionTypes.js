@@ -5,3 +5,5 @@ export const TOGGLE = "TOGGLE";
 export const LOADED = "LOADED";
 export const UNMOUNT = "UNMOUNT";
 export const SENDMESSAGE = "SENDMESSAGE";
+export const SHOWNAV = "SHOWNAV";
+export const HIDENAV = "HIDENAV";

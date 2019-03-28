@@ -6,6 +6,22 @@ import { Collapse, Navbar, NavbarToggler,
 
 import { NavLink, Link } from 'react-router-dom';
 import Contact from './ContactComponent';
+
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { actions } from 'react-redux-form';
+import { toggleModal, sendMessage  } from '../redux/ActionCreator';
+
+const mapStateToProps = state => ({
+    modalIsOpen: state.modalIsOpen
+});
+
+const mapDispatchToProps = dispatch => ({
+    toggleModal: () => {dispatch(toggleModal())},
+    sendMessage: (message) => {dispatch(sendMessage(message))},
+    resetContactForm: () => {dispatch(actions.reset('contactForm'))},
+});
+
   
 class Header extends Component {
     constructor(props) {
@@ -68,4 +84,4 @@ class Header extends Component {
     }
   }
   
-  export default Header
+  export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Header));

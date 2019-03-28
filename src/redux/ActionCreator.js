@@ -42,6 +42,14 @@ export const toggleModal = () => (dispatch) => dispatch({
     type: ActionTypes.TOGGLE
 });
 
+export const showNav = () => (dispatch) => dispatch({
+    type: ActionTypes.SHOWNAV
+});
+
+export const hideNav = () => (dispatch) => dispatch({
+    type: ActionTypes.HIDENAV
+});
+
 export const componentLoaded = () => (dispatch) => dispatch({
     type: ActionTypes.LOADED
 });

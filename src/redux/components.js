@@ -9,6 +9,17 @@ export const Modal = (state = false , action ) => {
     }
 }
 
+export const Nav = (state = false , action ) => {
+    switch (action.type) {
+        case ActionTypes.SHOWNAV:
+            return true
+        case ActionTypes.HIDENAV:
+            return false
+        default:
+            return state
+    }
+}
+
 export const Loaded = (state = false , action) => {
     switch (action.type) {
         case ActionTypes.LOADED:
