@@ -7,3 +7,5 @@ export const UNMOUNT = "UNMOUNT";
 export const SENDMESSAGE = "SENDMESSAGE";
 export const SHOWNAV = "SHOWNAV";
 export const HIDENAV = "HIDENAV";
+export const EYEMOVE = "EYEMOVE";
+export const TOGGLECOLLAPSE = "TOGGLECOLLAPSE";

@@ -16,19 +16,14 @@ const mapDispatchToProps = dispatch => ({
 class NavSide extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            showNavUp: false
-          }
         this.onScroll = this.onScroll.bind(this);
     }
 
     componentDidMount() {
-        console.log("Nav component mounted! ", this.props.navShouldShow);
         window.addEventListener('scroll',this.onScroll); 
     }
 
     onScroll() {
-        console.log("scroll event detected", this.props.navShouldShow);
         var body = document.body,
             html = document.documentElement,
             heightTop = html.scrollTop || body.scrollTop,

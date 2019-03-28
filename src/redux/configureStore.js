@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { Projects } from './projects';
 import { InitialContactForm } from './contactForm';
-import { Modal, Loaded, Nav } from './components';
+import { Modal, Loaded, Nav, EyePosition, NavBarCollapse } from './components';
 
 
 export const ConfigureStore = () => {
@@ -12,8 +12,10 @@ export const ConfigureStore = () => {
         combineReducers({
             projects: Projects,
             modalIsOpen: Modal,
+            navbarIsOpen: NavBarCollapse,
             loaded: Loaded,
             navShouldShow: Nav,
+            eyePosition: EyePosition,
             ...createForms({
                 contactForm: InitialContactForm
             })

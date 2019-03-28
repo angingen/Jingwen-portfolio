@@ -30,3 +30,23 @@ export const Loaded = (state = false , action) => {
             return state
     }
 }
+
+export const EyePosition = (state = {
+    eyePositionL: 180,
+    eyePositionR: 180 }, action) => {
+    switch (action.type) {
+        case ActionTypes.EYEMOVE:
+            return {eyePositionL:action.payload.eyePositionL, eyePositionR: action.payload.eyePositionR}
+        default:
+            return state
+    }
+}
+
+export const NavBarCollapse = (state = false , action ) => {
+    switch (action.type) {
+        case ActionTypes.TOGGLECOLLAPSE:
+            return !state
+        default:
+            return state
+    }
+}

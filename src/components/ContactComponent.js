@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import { Row, Col, Label } from "reactstrap";
 import { Control, Form, Errors } from 'react-redux-form';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { eyeMove, changeEyeposition } from '../redux/ActionCreator';
+
+const mapStateToProps = state => ({
+    eyePosition: state.eyePosition
+});
+
+const mapDispatchToProps = dispatch => ({
+    eyeMove: (event,leftEyeEle,rightEyeEle) => {dispatch(eyeMove(event,leftEyeEle,rightEyeEle))},
+    changeEyeposition: () => {dispatch(changeEyeposition(0,0))}
+});
 
 const required = (val) => val && val.length;
-const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val)
+const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
-export default class Contact extends Component {
+
+class Contact extends Component {
 
     constructor(props){
         super(props);
@@ -13,10 +26,10 @@ export default class Contact extends Component {
         this.submitHandler = this.submitHandler.bind(this)
         this.rightEye = React.createRef();
         this.leftEye = React.createRef();
-        this.state = {
-            eyePositionL: 0,
-            eyePositionR: 0
-        }
+    }
+
+    componentDidMount() {
+        this.props.changeEyeposition();
     }
 
     submitHandler(values) {
@@ -26,33 +39,9 @@ export default class Contact extends Component {
     }
 
     handelMouseMove(event) {
-        const y1 = event.clientY;
-        const x1 = event.clientX;
         const leftEyeEle = this.leftEye.current.getBoundingClientRect();
         const rightEyeEle = this.rightEye.current.getBoundingClientRect();
-        const x0r = rightEyeEle.left + rightEyeEle.width/2;
-        const y0r = rightEyeEle.top + rightEyeEle.height/2;
-        const x0l = leftEyeEle.left + leftEyeEle.width/2;
-        const y0l = leftEyeEle.top + leftEyeEle.height/2;
-
-        var eyePositionL = Math.acos((y1-y0l)/Math.sqrt(Math.abs(x1*x1 - x0l*x0l)))*180/Math.PI;
-        if (y1 > y0l) {
-            eyePositionL? eyePositionL = (x0l-x1)/Math.abs(x0l-x1)*eyePositionL+90 : eyePositionL=90;
-        } else if (y1 < y0l) {
-            eyePositionL? eyePositionL = (x0l-x1)/Math.abs(x0l-x1)*eyePositionL+90 : eyePositionL=-90;
-        } else {
-            x1 > x0l ? eyePositionL = 0: eyePositionL = 180;
-        }
-
-        var eyePositionR = Math.acos((y1-y0r)/Math.sqrt(Math.abs(x1*x1 - x0r*x0r)))*180/Math.PI;
-        if (y1 > y0r) {
-            eyePositionR? eyePositionR = (x0r-x1)/Math.abs(x0r-x1)*eyePositionR+90 : eyePositionR=90;
-        } else if (y1 < y0r) {
-            eyePositionR? eyePositionR = (x0r-x1)/Math.abs(x0r-x1)*eyePositionR+90 : eyePositionR=-90;
-        } else {
-            x1 > x0r ? eyePositionR = 0: eyePositionR = 180;
-        }
-        this.setState({eyePositionL:eyePositionL, eyePositionR:eyePositionR});
+        this.props.eyeMove(event,leftEyeEle,rightEyeEle);
 
     }
 
@@ -63,8 +52,8 @@ export default class Contact extends Component {
                     <div className="row">
                         <div className="col-12 col-md-5 mailbox-img">
                             <img className="base-img" src="/assets/images/mail.svg" alt="avatar with mailbox" ></img>
-                            <img className="base-img-eye-right" id="rightEye" ref={this.rightEye} src="/assets/images/eye.svg" alt="right-eye" style={{transform:`rotate(${this.state.eyePositionR}deg)`}}></img>
-                            <img className="base-img-eye-left" id="leftEye" ref={this.leftEye} src="/assets/images/eye.svg" alt="left-eye" style={{transform:`rotate(${this.state.eyePositionL}deg)`}}></img>
+                            <img className="base-img-eye-right" id="rightEye" ref={this.rightEye} src="/assets/images/eye.svg" alt="right-eye" style={{transform:`rotate(${this.props.eyePosition.eyePositionR}deg)`}}></img>
+                            <img className="base-img-eye-left" id="leftEye" ref={this.leftEye} src="/assets/images/eye.svg" alt="left-eye" style={{transform:`rotate(${this.props.eyePosition.eyePositionL}deg)`}}></img>
                         </div>
                         <div className="col-12 col-md-7 form-text">
                             <Form model="contactForm" onSubmit={(values) => this.submitHandler(values)} >
@@ -132,3 +121,5 @@ export default class Contact extends Component {
         );
     }
 }
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Contact));

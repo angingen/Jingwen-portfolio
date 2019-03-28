@@ -84,14 +84,6 @@ function RenderSection({projects}) {
 
 export default class Projects extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            onHoverEle : null,
-            animationActive : false
-        }
-    }
-
     componentWillUnmount() {
         window.scroll({top:0, left:0, behavior: 'smooth'});
     }
