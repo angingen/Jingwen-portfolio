@@ -1,26 +1,6 @@
-@mixin absolute-position($left,$right) {
-    position: absolute;
-    left: $left;
-    top: $right;
-}
-
-@mixin animation($name,$duration,$delay,$interation,$fill) {
-    -webkit-animation-name: $name;
-    -webkit-animation-duration: $duration;
-    -webkit-animation-delay: $delay;
-    -webkit-animation-iteration-count: $interation;
-    -webkit-animation-fill-mode: $fill;
-    animation-name: $name;
-    animation-duration: $duration;
-    animation-delay: $delay;
-    animation-iteration-count: $interation;
-    animation-fill-mode: $fill;
-}
-
 // shared style
 section.projects, section.project-demo {
     // place holder for broken img link
-
     img:before { 
         content: " ";
         display: block;
@@ -175,7 +155,7 @@ section.project-demo {
         span.mask {
             position: absolute;
             background-color: white;
-            height: 141px;
+            height: 150px;
             z-index: 1;
             top: 0;
             @include animation(reveal,0.5s,0s,1,backwards);
@@ -210,6 +190,7 @@ section.project-demo {
 
         p {
             font-style: italic;
+            padding: 0 5px;
             @include animation(occur,0.5s,0.5s,1,backwards);
         }
     }

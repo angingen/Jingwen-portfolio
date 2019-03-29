@@ -1,16 +1,3 @@
-@mixin animation($name,$duration,$delay,$interation,$fill) {
-    -webkit-animation-name: $name;
-    -webkit-animation-duration: $duration;
-    -webkit-animation-delay: $delay;
-    -webkit-animation-iteration-count: $interation;
-    -webkit-animation-fill-mode: $fill;
-    animation-name: $name;
-    animation-duration: $duration;
-    animation-delay: $delay;
-    animation-iteration-count: $interation;
-    animation-fill-mode: $fill;
-}
-
 section.skills {
     flex-direction: column;
     position: relative;

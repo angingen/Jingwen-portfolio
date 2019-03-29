@@ -16,16 +16,6 @@ $node-bk: #303030;
 $pte-red: #C24332;
 
 
-@import 'badges';
-@import 'animation';
-@import 'media-queries';
-
-@import 'welcome-section';
-@import 'projects-and-demo-section';
-@import 'contact-section';
-@import 'about-section';
-@import 'skills-section';
-
 @mixin animation($name,$duration,$delay,$interation,$fill) {
     -webkit-animation-name: $name;
     -webkit-animation-duration: $duration;
@@ -44,6 +34,16 @@ $pte-red: #C24332;
     left: $left;
     top: $right;
 }
+
+@import 'badges';
+@import 'animation';
+@import 'media-queries';
+
+@import 'welcome-section';
+@import 'projects-and-demo-section';
+@import 'contact-section';
+@import 'about-section';
+@import 'skills-section';
 
 html, body {
     height: 100%;
@@ -209,6 +209,7 @@ footer {
 
 .loading-wrapper {
     width: 100%;
+    min-width: 320px;
     min-height: 600px;
     height: 100vh;
     background-color: black;

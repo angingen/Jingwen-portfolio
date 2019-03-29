@@ -150,7 +150,7 @@ function RenderProject ({project, isLoading, errMess}) {
                             </div>
                             <div className="col-12 col-md-8"><RenderRealization realization={project.realization} /></div>
                             <div className="col-12 breaker"></div>
-                            <div className="col-12 d-flex justify-content-center m-3" style={{color: project.themeColor.title}}>
+                            <div className="col-12 d-flex justify-content-center mt-3 mb-3" style={{color: project.themeColor.title}}>
                                 <h2>Color Scheme<span>Color</span></h2>
                             </div>
                             <div className="color-container col-12">

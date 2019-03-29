@@ -1,14 +1,8 @@
-@mixin animation($name,$duration,$delay,$interation,$fill) {
-    -webkit-animation-name: $name;
-    -webkit-animation-duration: $duration;
-    -webkit-animation-delay: $delay;
-    -webkit-animation-iteration-count: $interation;
-    -webkit-animation-fill-mode: $fill;
-    animation-name: $name;
-    animation-duration: $duration;
-    animation-delay: $delay;
-    animation-iteration-count: $interation;
-    animation-fill-mode: $fill;
+@mixin xs() {
+    html body {
+        min-width: 320px;
+        overflow-x: auto;
+    }
 }
 
 @mixin welcome--xs() {
@@ -233,6 +227,7 @@
 
 // extra small devices || mobile devices
 @media (max-width:575px) {
+    @include xs();
     @include welcome--xs();
     @include skills--xs--sm();
     @include project--demo--xs--sm();
