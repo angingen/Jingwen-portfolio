@@ -56,16 +56,12 @@ class Main extends Component {
                 <Loading />
                 <Switch>
                     <Route exact path="/home" component={ ()=> 
-                        <Welcome scrollToTop={this.props.scrollToTop} 
-                            componentUnmount={this.props.componentUnmount} componentLoaded={this.props.componentLoaded} />} />
-                    <Route exact path="/about" component={ ()=>
-                        <About componentUnmount={this.props.componentUnmount} componentLoaded={this.props.componentLoaded} /> } />
-                    <Route exact path="/skills" component={()=>
-                        <Skills componentUnmount={this.props.componentUnmount} componentLoaded={this.props.componentLoaded} />} />
+                        <Welcome scrollToTop={this.props.scrollToTop} />} />
+                    <Route exact path="/about" component={About} />
+                    <Route exact path="/skills" component={Skills} />
                     <Route exact path="/projects" component={()=>
                         <Projects projects={this.props.projects} 
-                            scrollToTop={this.props.scrollToTop} 
-                            componentUnmount={this.props.componentUnmount} componentLoaded={this.props.componentLoaded} />} />
+                            scrollToTop={this.props.scrollToTop} />} />
                     <Route path="/projects/:projectId" component={ProjectSelected} />
                     <Redirect to="/home" />
                 </Switch>
