@@ -5,6 +5,7 @@
     }
 }
 
+// welcome section
 @mixin welcome--xs() {
     .welcome-img{
         display: none;
@@ -28,6 +29,61 @@
     }
 }
 
+// about section
+@mixin about--xs--sm() {
+    section.about {
+        div.row {
+            .general-info-container {
+                @include animation(occur,1s,0.5s,1,backwards);
+                
+            }
+            .education-info-container {
+                @include animation(occur,1s,1s,1,backwards);
+            }
+            div.title {
+                h2 {
+                    text-align: left;
+                }
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@mixin about--md() {
+    section.about {
+        .general-info-container,.education-info-container  {
+            height: 600px;
+        }
+    }
+}
+
+@mixin about--md--lg() {
+    section.about {
+        div.row {
+            position: relative;
+            .general-info-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translateY(-50%);
+                @include animation(slide-right,1s,0.5s,1,backwards);
+                
+            }
+            .education-info-container {
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translateY(-50%);
+                @include animation(slide-left,1s,0.5s,1,backwards);
+            }
+        }
+    }
+}
+
+// skills section
 @mixin skills--xs--sm {
     section.skills {
         .skills-text {
@@ -35,9 +91,78 @@
             flex-direction: column;
             justify-content: center;
         }
+        div.row {
+            position: relative;
+            .html {
+                @include animation(occur,1s,0.5s,1,backwards);
+            }
+
+            .css {
+                @include animation(occur,1s,0.75s,1,backwards);
+            }
+            .js {
+                @include animation(occur,1s,1s,1,backwards);
+            }
+            .tools {
+                @include animation(occur,1s,1.25s,1,backwards);
+            }
+        }
     }
 }
 
+@mixin skills--md() {
+    section.skills {
+        div.row {
+            position: relative;
+            .html {
+                @include animation(occur,1s,0.5s,1,backwards);
+            }
+
+            .css {
+                @include animation(occur,1s,0.75s,1,backwards);
+            }
+            .js {
+                @include animation(occur,1s,1.25s,1,backwards);
+            }
+            .tools {
+                @include animation(occur,1s,1s,1,backwards);
+            }
+        }
+    }
+}
+
+@mixin skills--lg() {
+    section.skills {
+        div.row {
+            position: relative;
+            .html, .css, .js, .tools {
+                position: absolute;
+                top: 0;
+                transform: translateY(-50%);
+                height: 360px;
+            }
+            .html {
+                left: 0;
+                @include animation(show-up,1s,0.5s,1,backwards);
+            }
+
+            .css {
+                left: 25%;
+                @include animation(show-down,1s,0.5s,1,backwards);
+            }
+            .js {
+                left: 50%;
+                @include animation(show-up,1s,0.5s,1,backwards);
+            }
+            .tools {
+                right: 0;
+                @include animation(show-down,1s,0.5s,1,backwards);
+            }
+        }
+    }
+}
+
+// projects section
 @mixin projects--xs() {
     section.projects {
         .button {
@@ -81,6 +206,7 @@
     }
 }
 
+// project demo section
 @mixin project--demo--xs--sm() {
     section.project-demo {
         .section-title-container {
@@ -118,6 +244,7 @@
     }
 }
 
+// header 
 @mixin header--xs--sm() {
     header {
         li.contact-btn-sm {
@@ -141,94 +268,11 @@
     }
 }
 
-
-@mixin about--md--lg() {
-    section.about {
-        div.row {
-            position: relative;
-            .general-info-container {
-                position: absolute;
-                top: 0;
-                left: 0;
-                transform: translateY(-50%);
-                @include animation(slide-right,1s,0.5s,1,backwards);
-                
-            }
-            .education-info-container {
-                position: absolute;
-                top: 0;
-                right: 0;
-                transform: translateY(-50%);
-                @include animation(slide-left,1s,0.5s,1,backwards);
-            }
-        }
-    }
-}
-
-@mixin about--md() {
-    section.about {
-        .general-info-container,.education-info-container  {
-            height: 600px;
-        }
-    }
-}
-
-@mixin skills--lg() {
-    section.skills {
-        div.row {
-            position: relative;
-            .html, .css, .js, .tools {
-                position: absolute;
-                top: 0;
-                transform: translateY(-50%);
-                height: 360px;
-            }
-            .html {
-                left: 0;
-                @include animation(show-up,1s,0.5s,1,backwards);
-            }
-
-            .css {
-                left: 25%;
-                @include animation(show-down,1s,0.5s,1,backwards);
-            }
-            .js {
-                left: 50%;
-                @include animation(show-up,1s,0.5s,1,backwards);
-            }
-            .tools {
-                right: 0;
-                @include animation(show-down,1s,0.5s,1,backwards);
-            }
-        }
-    }
-}
-
-@mixin skills--md() {
-    section.skills {
-        div.row {
-            position: relative;
-            .html {
-                @include animation(occur,1s,0.5s,1,backwards);
-            }
-
-            .css {
-                @include animation(occur,1s,0.75s,1,backwards);
-            }
-            .js {
-                @include animation(occur,1s,1.25s,1,backwards);
-            }
-            .tools {
-                @include animation(occur,1s,1s,1,backwards);
-            }
-        }
-    }
-}
-
 // extra small devices || mobile devices
 @media (max-width:575px) {
     @include xs();
     @include welcome--xs();
+    @include about--xs--sm();
     @include skills--xs--sm();
     @include project--demo--xs--sm();
     @include projects--xs();
@@ -239,6 +283,7 @@
 //  small devices || tablet
 @media (min-width:576px) and (max-width:767px) {
     @include welcome--sm();
+    @include about--xs--sm();
     @include skills--xs--sm();
     @include project--demo--xs--sm();
     @include header--xs--sm();
