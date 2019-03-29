@@ -11,7 +11,7 @@ function RenderProject({projects}) {
         return(
             <div className={index%2 === 0? "offset-lg-1 col-lg-11 col-12 project-container": "col-lg-11 col-12  project-container" } key={index}>
                 <div className="col-12 col-lg-8 order-1 order-lg-0 align-center">
-                    <div className="project-img-container mb-3">
+                    <div className="project-img-container mb-3" style={{backgroundColor:`${project.themeColor.title}`}}>
                         <img src={baseURL+project.poster.screenshot} alt={project.poster.screenshotAlt} className="website-img"></img>
                         <img src="/assets/images/placeholder-img.png" alt="place holder" className="holder-img"></img>
                     </div>
