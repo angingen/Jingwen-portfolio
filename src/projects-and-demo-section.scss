@@ -155,7 +155,7 @@ section.project-demo {
         span.mask {
             position: absolute;
             background-color: white;
-            height: 150px;
+            height: 200px;
             z-index: 1;
             top: 0;
             @include animation(reveal,0.5s,0s,1,backwards);
