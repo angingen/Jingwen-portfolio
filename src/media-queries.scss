@@ -54,6 +54,9 @@
 
 @mixin about--md() {
     section.about {
+        .container {
+            min-height: 650px;
+        }
         .general-info-container,.education-info-container  {
             height: 600px;
         }
@@ -62,6 +65,9 @@
 
 @mixin about--md--lg() {
     section.about {
+        .container {
+            min-height: 600px;
+        }
         div.row {
             position: relative;
             .general-info-container {

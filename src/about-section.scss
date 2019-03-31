@@ -34,14 +34,16 @@ section.about {
             flex: 0 0 auto;
             align-self: baseline;
             position: relative;
+            width: 100%;
             span { 
+                width: 100%;
                 color: $pl-dark;
                 opacity: 0.3;
                 text-transform: uppercase;
                 font-size: 3.5rem;
                 font-weight: bold;
                 @include absolute-position(0,0);
-                transform: translate(25%,-30%);
+                transform: translate(0,-30%);
             }
         }
     }
@@ -56,6 +58,7 @@ section.about {
             width: 100%;
             text-align: end;
             span { 
+                width: 100%;
                 color: white;
                 opacity: 0.1;
                 text-transform: uppercase;
