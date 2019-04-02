@@ -17,7 +17,7 @@ export default class Skills extends Component {
                             <span className="fab fa-3x fa-html5"></span>
                         </div>
                         <div className="col-12 skills-text">
-                            <p>I am confident of writing a clear structure with <span className="keyword">HTML</span> and using semantic elements when appropriate. I also aware of the importance of <span className="keyword">accessibility</span> and <span className="keyword">SEO</span>. </p>
+                            <p>I am confident in writing a clear structure with <span className="keyword">HTML</span> and using semantic elements when appropriate. I am also aware of the importance of  <span className="keyword">accessibility</span> and <span className="keyword">SEO</span>. </p>
                         </div>
                     </div>
                     <div className="col-12 col-md-6 col-lg-3 css">
@@ -33,7 +33,7 @@ export default class Skills extends Component {
                             <span className="fab fa-3x fa-js"></span>
                         </div>
                         <div className="col-12 skills-text">
-                            <p>I am confident of using <span className="keyword">JavaScript</span> to add functionality and interactivity to my websites. I pursuit writing clear, clean and reusable codes. I am comfortable with writing <span className="keyword">React</span> applications and managing states using <span className="keyword">Redux</span>. I also learned how to setup a simple <span className="keyword">Node.js</span> serve.</p>
+                            <p>I am confident of using <span className="keyword">JavaScript</span> to add functionality and interactivity to my websites. I pursuit writing clear, clean and reusable codes. I am comfortable with writing <span className="keyword">React</span> applications and managing states using <span className="keyword">Redux</span>. I also learned how to set up a simple <span className="keyword">Node.js</span> serve.</p>
                         </div>
                     </div>
                     <div className="col-12 col-md-6 col-lg-3 tools">

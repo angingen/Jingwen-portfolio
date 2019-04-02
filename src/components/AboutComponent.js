@@ -41,9 +41,9 @@ export default class About extends Component {
                         <div className="col-12 col-md-6 general-info-container">
                             <div className="text order-1 order-md-0"> 
                                 <p>Hi, nice to meet you. I am Jingwen Wang, a self-taught front-end web developer.</p>
-                                <p>I graduated from the University of Melbourne with a master degree of Mechanical Engineering in 2018. I soon discovered my interest in web development when I was experimenting on web scrapping. </p>
-                                <p>Therefore, I invested my time on doing online courses and practicing what I learned by working on small projects. Now, I truly enjoy web development.</p>
-                                <p>As an engineer, I have confident in my math ability and problem solving skills. As a self-taught front-end developer, I learn things fast and never give up easily. As someone enjoying their free time, I like things that is challenging, such as rock climbing and ARPG games.</p>
+                                <p>I graduated from the University of Melbourne with a Master Mechanical Engineering in 2018. I soon discovered my interest in web development when I was experimenting on web scraping. </p>
+                                <p>Therefore, I invested my time doing online courses and practicing what I learned by working on small projects. Now, I truly enjoy web development.</p>
+                                <p>As an engineer, I have confidence in my math ability and problem-solving skills. As a self-taught front-end developer, I learn things fast and never give up easily. As someone enjoying their free time, I like things that are challenging, such as rock climbing and ARPG games.</p>
                             </div>
                             <div className="space-filler d-none d-md-block"></div>
                             <div className="title order-0 order-md-1">
