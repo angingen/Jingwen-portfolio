@@ -31,7 +31,7 @@ class Header extends Component {
         <Navbar color="dark" dark expand="md">
           <div className="container">
           <Link className="navbar-brand" to="/home"><strong>Jing</strong></Link>
-          <NavItem className="contact-btn-sm"><Button color="warning" onClick={this.props.toggleModal} className="d-inline d-md-none mr-auto"><span className="fas fa-mail-bulk"></span></Button></NavItem>
+          <NavItem className="contact-btn-sm d-inline d-md-none"><Button color="warning" onClick={this.props.toggleModal} className="mr-auto"><span className="fas fa-mail-bulk"></span></Button></NavItem>
           <NavbarToggler onClick={this.props.toggleCollapse} />
           <Collapse isOpen={this.props.navbarIsOpen} navbar>
             <Nav className="ml-auto" navbar>
