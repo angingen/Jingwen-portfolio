@@ -62,6 +62,11 @@ export const componentUnmount = () => (dispatch) => dispatch({
     type: ActionTypes.UNMOUNT
 });
 
+export const imgLoaded = (imgurl) => (dispatch) => dispatch({
+    type: ActionTypes.LOADEDIMG,
+    payload: imgurl
+})
+
 
 export const sendMessage = (message) => (dispatch) => {
     // const newMessage = {...message};

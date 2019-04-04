@@ -9,3 +9,4 @@ export const SHOWNAV = "SHOWNAV";
 export const HIDENAV = "HIDENAV";
 export const EYEMOVE = "EYEMOVE";
 export const TOGGLECOLLAPSE = "TOGGLECOLLAPSE";
+export const LOADEDIMG = "LOADEDIMG";

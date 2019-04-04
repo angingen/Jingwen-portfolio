@@ -63,6 +63,8 @@ section.projects {
             display: flex;
             flex-direction: column;
             position: relative;
+            box-shadow:0 5px 2px 0 $lt-dark;
+            outline: 2px solid black;
             img {
                 width: 100%;
             }
@@ -70,8 +72,15 @@ section.projects {
             .website-img {
                 position: absolute;
                 z-index: 1;
-                box-shadow:0 5px 2px 0 $lt-dark;
-                outline: 2px solid black;
+                opacity: 0;
+                transition: opacity 0.5s;
+            }
+
+            .img-spinner {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
             }
         }
 
@@ -80,7 +89,7 @@ section.projects {
 
 
     .project-container:hover {
-        img.website-img {
+        .project-img-container {
             box-shadow:0 10px 20px 0 $lt-dark;
             transform: translateY(-1px);
             transition: all 0.2s ease-out;

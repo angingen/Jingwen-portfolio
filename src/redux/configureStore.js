@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { Projects } from './projects';
 import { InitialContactForm } from './contactForm';
-import { Modal, Loaded, Nav, EyePosition, NavBarCollapse } from './components';
+import { Modal, Loaded, Nav, EyePosition, NavBarCollapse, LoadedImg } from './components';
 
 
 export const ConfigureStore = () => {
@@ -16,6 +16,7 @@ export const ConfigureStore = () => {
             loaded: Loaded,
             navShouldShow: Nav,
             eyePosition: EyePosition,
+            loadedImg: LoadedImg,
             ...createForms({
                 contactForm: InitialContactForm
             })

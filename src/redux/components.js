@@ -50,3 +50,12 @@ export const NavBarCollapse = (state = false , action ) => {
             return state
     }
 }
+
+export const LoadedImg = (state=[], action) => {
+    switch (action.type) {
+        case ActionTypes.LOADEDIMG:
+            return [...state, action.payload]
+        default:
+            return state
+    }
+}
