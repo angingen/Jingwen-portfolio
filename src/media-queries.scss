@@ -171,6 +171,9 @@
 // projects section
 @mixin projects--xs() {
     section.projects {
+        div.project-container div.project-img-container,img {
+            min-height: 137px;
+        }
         .button {
             padding: 5px;
             height: 30px;
