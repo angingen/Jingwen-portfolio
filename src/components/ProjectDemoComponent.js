@@ -18,23 +18,23 @@ class ProjectPic extends Component {
         this.animating = true;
     }
 
-        onExited() {
+    onExited() {
         this.animating = false;
     }
 
-        next() {
+    next() {
         if (this.animating) return;
         const nextIndex = this.state.activeIndex === this.props.items.length - 1 ? 0 : this.state.activeIndex + 1;
         this.setState({ activeIndex: nextIndex });
     }
 
-        previous() {
+    previous() {
         if (this.animating) return;
         const nextIndex = this.state.activeIndex === 0 ? this.props.items.length - 1 : this.state.activeIndex - 1;
         this.setState({ activeIndex: nextIndex });
     }
 
-        goToIndex(newIndex) {
+    goToIndex(newIndex) {
         if (this.animating) return;
         this.setState({ activeIndex: newIndex });
     }
@@ -121,13 +121,13 @@ function RenderProject ({project, isLoading, errMess}) {
                 <article>
                     <div className="container">
                         <div className="row intro-container">
-                            <div className="col-12 order-0">
+                            <div className="col-12 order-0 word-cloud-container">
                                 <img className="keyword-cloud" src={baseURL+project.wordcloud} alt="project keyword cloud"></img>
                             </div>
                             <div className="col-12 col-md-4 order-1 order-md-2 align-center sub-heading align-items-end" style={{color: project.themeColor.title}}>
                                 <h2>Project Introduction<span>Introduction</span></h2>
                                 
-                            </div>
+                            </div> 
                             <div className="col-12 col-md-8 order-2 order-md-1">
                                 <p>{project.intro}</p>
                             </div>

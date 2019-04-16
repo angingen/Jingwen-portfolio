@@ -205,9 +205,10 @@ section.project-demo {
     }
 
     .intro-container {
-        div:nth-child(1){
+        div.word-cloud-container{
             display: flex;
             justify-content: center;
+            height: 300px;
         }
         img {
             align-self: center;
